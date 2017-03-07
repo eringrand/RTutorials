@@ -7,7 +7,7 @@ author: "Erin"
 ## Welcome to My R Tutorials Page.
 I'm helping my coworkers expand their use and knowedlge of R. This is will be the main resource for putting my materials until I find a different place.
 
-#Lesson 1
+# Lesson 1
 
 
 # Support or Questions
