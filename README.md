@@ -1,2 +1,1 @@
-# RTutorials
-Setting up some lesson plans and example to help my coworkers and other start R.
+Homepage at [https://eringrand.github.io/RTutorials/](https://eringrand.github.io/RTutorials/)
