@@ -1,0 +1,14 @@
+---
+title: "Acknowledgements"
+output: 
+  html_document: 
+    theme: journal
+---
+
+
+1. [R for Data Science by Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz/)
+1. [Steph Locke](http://stephlocke.info/Rtraining/)
+1. [UCVM R Bootcamp](https://ucvm.github.io/rbootcamp/overview.html)
+1. [Rstudio Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+1. Base R Cheatsheet by Mhairi McNeill. Updated 03/15
+1. 

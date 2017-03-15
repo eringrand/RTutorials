@@ -1,0 +1,397 @@
+---
+title: "Introduction to R: The Basics"
+author: "Erin"
+date: '`r Sys.Date()`'
+output: revealjs::revealjs_presentation
+---
+
+```{r setup, include=FALSE,	message = FALSE, warning = FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+	echo = TRUE
+)
+```
+
+# Welcome and Introduction
+<!-- CRAN: The Comprehensive R Archive Network -->
+
+
+## Before we jump into it, make sure that you have Rstudio, R and the package "Tidyverse" installed.
+
+All, set? Great let's begin!
+
+*** 
+
+### Which language do people use for what?
+```{r, echo=F}
+kable(data.frame("What do you want to do?" = c(
+"Building a website",
+"Web application",
+"Phone Application",
+"Numerical Computation",
+"Stats",
+"Visualization",
+"Typesetting",
+"Big Data"),
+Language = c(
+"HTML, CSS",
+"Java Script",
+"Swift, Objective C, Java",
+"IDL, Python, Matlab",
+"R, Strata",
+"R, JavaScript (D3)",
+"LaTeX, Mardown",
+"SQL, Scala, Python")
+), align = "lc")
+```
+
+
+# why R?
+
+***
+### What problems have you seen or come in across in the way you currently do data analyses and manipulation that you wish you could change?
+
+Discuss with team.
+
+
+## Why R?
+**"Struggling through programming helps you learn" - Chester Ismay**
+
+- **Free:** R and Rstudio are free and open sourced!
+- **Reproducible:** Analyses done using R are easy to run again with updated data.
+- **Collaboration:** Results are easy to share as a PDF.
+- **Manipulation:** Data manipulation is much easier due to cool packages.
+- **Understandable:** You can follow how new variables are created in someone else's code and to remember what past-you did.
+
+## Why R?
+
+- **Spot Checking:** You can also QC yourself along the way, instead of all at the end. PLUS code is often easier to QC because it'll yell at you when something goes wrong.
+- **Visualizations:** Play with visualizations before throwing into a dashboard to see if it looks interesting.
+- **Help:** Finding answers to your programming questions is a quick google away.
+- **Ease:** You can create multiple data tables (files) in R  to be read into -tableau OR you can join them together in R and only have tableau read in one file.
+- **Community:** Actively developed and a very active user community
+
+
+
+# R History
+
+## What is R?  
+
+R is calculator
+```
+2 + 2
+```
+
+## NO!! 
+
+R is a programming languange.  Specifically it's a programming language built for statistics.  
+
+And that's what it's best at.
+
+---  
+
+- R is a dialect of the S languange which was developed by John Chambers at Bell Labs in 1976 and still exists today although hasn't changed much since 1998.  
+- The philosopy behind S (and R) was to allow users to begin in an interactive enviroment that didn't explicitly feel like programming.  
+- As their needs and skills grew they could move into more of the programming aspects.  This helps us understand some of why R is the way it is.
+
+
+
+# Packages
+
+----  
+
+* Packages are simply bits of code, external to the core R code that are designed to perform a specific function.  
+* The vast majority of the usefulness and functionality of R resides in packages.  
+* These packages live in online repositories and can be installed on your own system to be used.  
+
+----  
+
+## Installing packages
+
+* Packages need only be installed once, although you may have to reinstall when upgrading R or when you want to use a newer version of a package.
+
+* To install from CRAN all one needs to do is:
+```
+install.packages("tidyverse")
+```
+
+## Using packages
+
+<small>
+Once installed all the functions in a package are available to be used.
+</small>
+```{r, eval=F, evcho=T}
+library(tidyverse)
+filter(iris, Species == "setosa")
+```
+* <small> `library()` loads the package into memory and allows you to use the functions within without naming the package directly everytime. </small>
+* <small>  Technically what is happening here is that when attaching a package R puts those functions in your search path, the place R looks first for objects and functions. </small>
+* <small> This may cause problems if packages have functions with the same name. R will choose the version for the package loaded last. </small>
+* <small> Packages are attached in your current session and need to be attached every time you start a new session. </small>
+
+# Other important key R functions 
+
+## Generating and manipulating sequences
+
+---- 
+
+```{r, collapse=TRUE}
+seq(1,10)
+
+seq(1, 20, by = 2)
+
+seq(from = 2, by = 2.5, length.out = 10)
+```
+
+
+```{r, collapse=TRUE}
+rep(2, 3)
+
+rep(1:3, 4)
+
+rep(1:3, each = 2)
+
+rep(c("A", "B", "C"), each = 6)
+
+```
+
+
+## Basic statistics
+
+```{r, collapse=TRUE}
+set.seed(3823)
+x = sample(1:1000, size = 50, replace = TRUE)
+```
+
+```{r, collapse=TRUE}
+max(x)
+
+min(x)
+
+range(x)
+
+mean(x)
+
+median(x)
+
+sum(x)
+
+sd(x)
+
+var(x)
+```
+
+---- 
+
+```{r, collapse=TRUE}
+y = rnorm(x, 1, 0.2 * x) + x
+plot(x,y)
+```
+
+---- 
+
+### Simple linear model
+
+```{r}
+my_model = lm(y ~ x)
+summary(my_model)
+```
+
+----
+
+```{r}
+plot(x, y, main = "Linear model")
+abline(my_model, col = "red")
+```
+ 
+ 
+# Where to get help
+
+## Built-in help
+
+R-package authors are required to document their functions although this happens at a various levels of usefulness.  
+
+* Simply type `?function_name` to get help on a function. 
+* Look carefully what parameters the function requires and what type they are.  
+* Some are required (listed first, no default) and some are optional (a default value is usually listed).  
+* Most function help will also indicate what the function returns.  
+* Good documentation also has more information on what the function is doing.
+
+
+## Elsewhere
+
+* Sometimes authors will provide more detailed documentation online.  
+* This is more common for more recent packages where the authors may have a github repository and associated webpage.  
+* Often discussion pages (Google groups, Stackoverflow) can also be a useful source of help
+
+# Errors
+
+## __GOOGLE IT!!!__
+
+If I get an error I haven't seen, the first thing I will do is Google it. Usually within a few clicks I can find what went wrong.
+
+---- 
+
+**But sometimes an easy answer can't be found so here's a quick process to walk through:**
+
+1.  Re-read the error and then think about it for a minute.  See if you can't get a grasp on what's really going wrong.
+2.  Check your code for errors.  Spelling errors, misplaced commas, forgotten parenthesis can all cause problems
+3.  Look it up - I very, very rarely get an error that someone else hasn't seen before.
+4.  If you still can't find a solution then you can ask for help. I can answer brief questions or you can post questions online at Stack Overflow.  Sometimes package developers have specific discussion groups on Google groups or Github.  These can be very useful.
+
+---- 
+
+To get you started here are few of the more common errors you might see:
+
+*Think about what is going wrong for each of these.*
+
+----
+
+```{r, error=TRUE}
+my_object
+```
+  
+----  
+```{r, error=TRUE}
+iris[, 6]
+```
+
+Hint:  How many columns does the `iris` data frame have?
+
+---- 
+```{r, error=TRUE}
+sample[1:10,]
+```
+
+Hint:  What does `typeof(sample)` give you? What about `sample(10)`?  Or `?sample`
+
+
+---- 
+```{r, error=TRUE}
+pet_a_cat()
+```
+
+
+----
+```{r, error=TRUE}
+nothing = NA
+if (nothing == NA) {
+	print("empty")
+}
+```
+
+Hint:  What does `nothing == NA` give you?  How about `is.na(nothing)`?
+
+---- 
+```{r, error=TRUE}
+my_data = read.table("mydata.txt")
+```
+
+Hint: Read the error message carefully.
+
+----
+```{r, error=TRUE}
+x = data.frame(y = NULL)
+x$y = 1:4
+```
+
+Hint: How many rows does `x` have?
+
+
+# Questions so Far
+## Any Questions you have from the tutorial?
+What did you find to be the most challenging?
+
+
+# Scripting
+
+## What are the important parts of a program?
+- Set working directory
+- Load packages
+- Load data
+- Functions
+- Code!
+
+
+## How do you write fast, good, clean code?
+- Comment comment comment
+- Use tabs and spaces to the best of your ability
+- THINK VERY HARD ABOUT EVERY FOR LOOP YOU USE. Do you really need it? (We'll talk about this more in a bit.)
+- If you're using the same chunk of code  over and over again, write it into a function.
+
+
+# Sample Script...
+
+## Sample Script...
+
+```{r, echo=T, eval=F, tidy=TRUE, tidy.opts=list(width.cutoff=50)}
+# Set working directory
+setwd("S:/Data Analytics/Resource Library/R help")
+
+# Load packages
+library(readxl)
+library(tidyverse)
+
+# Define Functions
+# file = file name, sheetname = sheet number or name, cn = T or F
+loaddata <- function(file, sheetname, cn){
+  x <- read_excel(file, sheet = sheetname, na = "", col_names = cn)
+  valid_names <- make.names(names=names(x), unique=TRUE, allow_ = TRUE)
+  names(x) <- valid_names
+  return(x)
+}
+
+# Load Data
+statetestNYS <- loaddata("Uncommon Student Level Results 15-16.xlsx", "Student Scores", T)
+
+# Look at historical state test profiency by school for ELA and Math in schools
+plotdat <- statetestNYS %>% 
+  filter(Subject != "Science", 
+         Region == "NY",
+         !(Grade == 8 & Subject == "Math")
+         ) %>%
+  mutate(prof = ifelse(Standard.Achieved %in% c("Level 3", "Level 4"), 1, 0)) %>%
+  group_by(Year, Uncommon.school.abbreviation, Subject, Grade) %>% 
+  summarise(avgP = mean(prof))
+
+ggplot(plotdat, aes(Year, avgP, color=Subject)) +
+  geom_boxplot() +
+  facet_grid(Subject~Grade)
+```
+
+# Now you try!
+***
+
+#### Using the *mpg* dataset, answer these questions.
+
+1. What is the manufacturer, model, and year of the car in the 42nd row?
+1. How many models of cars are in this data set? How many manufacturers?
+1. How many cars get over 19 mpg in the city?
+1. How many miles per gallon ON AVERAGE do the cars get on the highway? In the city?
+1. How many models of cars did Audi make in 1999?  
+
+
+
+***
+
+#### Answers!
+```{r, echo=F, message=FALSE, warning=FALSE}
+library(tidyverse)
+df <- mpg
+df[42, c(1, 2, 4)]
+
+paste(length(unique(df$model)), length(unique(df$manufacturer)), sep= ", ")
+
+sum(mpg$cty > 19)
+
+paste(round(mean(mpg$hwy)), round(mean(mpg$cty)) , sep= ", ")
+
+x <- filter(mpg, manufacturer == "audi", year == 1999)
+length(unique(x$model))
+```
+
+# Tips and Tricks
+## Some Tips and Tricks
+>- **Use tab complete:** Press "tab" after typing the first few letters to find the function, variable, or file that you need without having to type it all in.
+>- **Highlight Strings:** You can highlight what you want to put quotes around at once.
+>- **Short Cuts:** Hightlight what you want to run and press CNT-ENTER to run it.

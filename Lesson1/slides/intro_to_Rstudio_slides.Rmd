@@ -1,0 +1,39 @@
+---
+title: "Introduction to R: The Rstudio IDE"
+author: "Erin"
+date: '`r Sys.Date()`'
+output: revealjs::revealjs_presentation
+---
+
+
+## Rstudio
+##### Let's now take some time to really poke around at Rstudio as a program.
+>- Scripts and tables
+>- Enviroment and History
+>- Console
+>- Plots, Packages, Help, Files..etc
+
+***
+
+### Top Left
+You've been typing your code in an R script.
+
+>- Anytime you're using R you should be writing code in script form!
+>- You can save and share the code!
+>- There are a few other ways to write R scripts, that may be useful in the future. \n (Such as Rmarkdown, R notebooks, or making slides.)
+
+
+***
+### Top Right
+>- The variables that you name, show up in the *Environment* section on the RIGHT.
+Try clicking on one of the variables with a BLUE ARROW. What did you see? 
+
+>- You can also look at your *History* if you've lost a command or variable that you want back. It's searchable to make finding that missing command super easy!
+
+***
+
+### Bottom Right
+1. **Working Directory:** Files in the working directory, you can change your working directory to anything else in the code or by going to that location and clicking *More -> Set as Directory*.
+1. **Plots:** Any plots that you produce be in the "Plots" tab. It will keep a history so you can see changes as you make them.
+1. **Packages:** You can download new packages by clicking *Packages -> Install*. You can load packages by checking them off, but this is best done in your scripts!
+1. **Help:** Have a question on syntax of a command? You can look at it's help page by searching for it. You can also poke around tutorials and FAQ.

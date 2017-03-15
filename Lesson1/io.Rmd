@@ -1,0 +1,58 @@
+---
+title: "Data IO"
+date: "March 7, 2017"
+output:
+  html_document:
+    theme: cerulean
+---
+
+## In
+
+Format | Functions
+------------- | -------------
+CSV | read.csv , `readr::read_csv` 
+Excel | `readxl::read_excel`
+Database | `RODBC::sqlQuery` , `DBI::dbGetQuery`
+SPSS / SAS / Stata | `haven::read_[prog]`
+
+
+## Out
+
+Format | Functions
+------------- | -------------
+CSV | `write_csv` 
+Excel | `openxlsx::write.xlsx`
+Database | `RODBC::sqlSave , DBI::dbWriteTable` 
+SPSS / SAS / Stata | `foreign::write.foreign`
+
+## Examples
+All of the following examples use packages from the Tidyverse. I prefer `readr` and `readxl` to their basic R counterparts. 
+
+### Read Data In:
+```{r, eval=F}
+read_csv() #readr
+```
+
+### Write Data out:
+```{r, eval = F}
+write_csv() #readr
+```
+
+
+### Excel Files:
+This is a helper function I've written to make sure that the column names of my data frame are usable in the future code (i.e. so that column names don't have spaces or punctuation.)
+
+```{r, eval = F}
+#readxl
+f <- function(file, sheetname, cn){
+  x <- read_excel(file, sheet = sheetname, na = "", col_names = cn) 
+  valid_column_names <- make.names(names=names(x), unique=TRUE, allow_ = TRUE)
+  names(x) <- valid_column_names
+  return(x)
+}
+```
+
+
+
+## Other file types
+As well standard formats, there's a lot of connector packages out there, including a suite for [Hadoop](https://github.com/RevolutionAnalytics/RHadoop/wiki).

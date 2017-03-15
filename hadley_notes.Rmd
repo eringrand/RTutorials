@@ -1,0 +1,110 @@
+---
+title: "Hadley Wickham: Data Science in R"
+output: 
+  html_notebook: 
+    theme: cerulean
+---
+
+## On Machine Learning
+- If you're not using data to make decisions you're just not going to be successful
+**machine learning is not a magic wand**
+
+## On using new technologies
+- When do you decide to change to a new technology:
+  - read a lot of blogs, such as hacker-news for up to date information
+  - often hard to evaluate new technology on existing work until after you've invested the time to learn it
+
+
+## Data Science Process
+- Import Data
+- Tidy
+- Transform
+- Model - scales but doesn't surprise
+- Visualize - see surprises you might not expect, but doesn't scale very well
+- Communicate the results to others
+
+### TO USE MODERN DATA ANYALYSIS YOU HAVE TO LEARN TO PROGRAM
+#### Two old tensions in R programming
+- It is not just a programming langue, it is also an interactive data exploration tool. This causes some "surprises" 
+- There is tension between being conservative vs Utopian. Basic R is much more conservative, things change slowly.
+
+
+## Principals of tidyverse
+1. share data structures: Use a consistent format
+2. compose simple/uniform pieces: use the pipe
+3. embrace functional programming: don't write for loops when you don't have to
+4. write for humans: be nice to your future self
+  
+ 
+### Data Structures
+- not everything fits into the data frame structure, but most will
+- data frames fit almost all needs
+- sometimes you want a table like data frame that holds more complex structures, like saving models to a table with their RMSE values.
+- In these cases you can use a *TIBBLE*
+
+What if you have a mix of structures:
+- IE. training data + test data -> mode -> predictions -> rmse
+- Not limited inside a data frame to not just storing numbers but also COMPLEX OBJECTS
+- use tibble to put model in a list form 
+
+
+
+## Tibble
+- lazy
+- work better with list columns
+- can hold complex objects, like models or other data frames
+
+
+## Compose simple/uniform pieces
+- use the pipe!!
+- pipe allows to write functions and arrange them in a way that is easy to understand
+- thinking about code explicitly as a form of communication
+- especially helpful so you don't have to curse past you, always think about future you
+EX.
+
+```
+bop_on(
+  scoop_up(
+  hop_through(foo_foo, forest),
+  field_most
+),
+head
+)
+)
+```
+
+is much more confusing then
+
+```
+foo_foo %>%
+  hop_through(forest) %>%
+  scop_up(field_mouse) %>%
+  bop_on(head)
+)
+```
+
+
+## Functional Programing
+- the first time you make a recipe it's good have very explicit text
+- for loops emphasize on the nouns, when we usually care about the verbs
+```{r}
+library(purrr)
+map_dbl(mtcars, mean)
+map_dbl(mtcars, median)
+```
+
+Other fun functional programming functions!
+```{r, eval=F}
+invoke_map()
+pwalk()
+```
+
+## Write for Humans
+- data analysis should be a little bit fun  
+- embrace exquisite language 
+- humans are pack animals (use stickers, join clubs, meet people)
+- start with the book!
+
+## Rule of thumb: You should never copy and paste code, more than twice
+- write it to a function
+- or use a loop of some kind

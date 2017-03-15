@@ -1,0 +1,73 @@
+---
+title: "Subsetting"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+
+----
+
+*Note that a much more detailed overview of subsetting can be found in the [Subsetting](http://adv-r.had.co.nz/Subsetting.html) chapter of Advanced R.*
+
+
+# Basic Subsetting
+
+----
+
+There are 6 different ways to subset and 3 subsetting operators. 
+
+
+## Vectors
+
+1. Positive integers 
+
+2. Negative integers
+
+3. Logical vectors 
+
+4. Nothing 
+
+5. Zero returns a zero length vector
+
+6. Character vector
+
+## Lists
+
+Lists work in the same way as vectors.  We'll look at how the different subsetting operators `[`, `[[`, and `$` change what you pull out of the list.
+
+## Matrices
+
+Matrices have two dimensions, each one is subset like a one-dimensional vector. Rows are first, then columns.
+
+Matrices can be indexed with a single vector and in this case the matrix will behave like a vector.
+
+
+## Data frames
+
+Data frames can be indexed with a single vector like list (remember data frame columns are like a list).  They can (and are more commonly) indexed with two vectors like a matrix.
+
+## Subsetting operators
+
+* You can also `[[` and `$` to subset.  
+* The difference is the type of object they return.  
+* `[[` is most useful for lists because `[` always returns a list and not the actual value.  
+* However, `[[` only returns a single value so it can only be used with a single positive integer or a string. `$` is short hand for `[[` with characters.
+
+
+----
+
+
+![](https://pbs.twimg.com/media/CO2_qPVWsAAErbv.png)
+
+From [\@hadleywickham](https://twitter.com/hadleywickham)
+
+----
+
+The different operators are useful in different situations and you often find yourself using multiple operators in a single subsetting operation
+
+
+----
+
+Read the chapter on Subsetting from Advanced R for more details.  In particular the section on simplifying versus preserving will save you many headaches in the future.

@@ -1,0 +1,202 @@
+---
+title: "Ceci n'est pas une pipe"
+author: "Erin"
+date: '`r Sys.Date()`'
+output: revealjs::revealjs_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=F, message=FALSE, warning=FALSE}
+library(tidyverse)
+mpg <- mpg
+```
+# What is the Pipe?
+
+## Magritte's The Treachery of Images
+
+<div class="centered">
+![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/MagrittePipe.jpg?raw=true)
+
+## Introduction to R's Not-a-Pipe: %>%
+I was once told me that `%>%` is called not-a-pipe since *pipe* was already taken for another symbol (|), but considering it is from the magrittr package, I believe the real story is based on Magritte's famous image.
+
+## What is the pipe?
+<div align="left">![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/magrittr.png?raw=true)
+<div>
+
+> - The pipe leads the OUTPUT of one command into the INPUT of the next one.
+> - Functions in the *Tidyverse* are written to work well with the pipe
+
+***
+
+For example, we've seen that to filter a data frame you use
+```{r}
+x <- filter(mpg, hwy >= 31)
+newx <- mutate(x, hwy.kpl = hwy * 0.4251)
+```
+
+But you could also pipe in the input to the next command.
+```{r}
+x <- mpg %>% 
+  filter(hwy >= 31) %>%
+  mutate(hwy.kpl = hwy * 0.4251)
+```
+ 
+## Data First {.build}
+Notice how the the data frame is always the first argument to these functions. 
+
+> - When writing your OWN functions, if you want to use them in a pipe sequence remember that the dataframe must be the first argument
+> - A surprsing number of other functions in R are NOT desgined with data frist, so you have to do some work to use them in a pipe:
+  > - `lm(y ~ x, data=data)` does not have the data as the first argument
+
+# Examples
+
+***
+
+This makes combining output from various different functions much easier to write and read.
+
+```{r}
+#Option A:
+mutate(
+  filter(iris, Sepal.Width > 4), 
+  total_width = Sepal.Width + Petal.Width)
+```
+***
+
+This code computes the same output as before, but is much easier to read. 
+
+Rember, code should be written to be understood by future you. Make future you happy!
+
+```{r}
+#Option B:
+iris %>% 
+  filter(Sepal.Width > 4) %>%
+  mutate(total_width = Sepal.Width + Petal.Width)
+```
+
+<div align="right">
+![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/dancing_penguin.gif?raw=true)
+</div>
+
+## Difference bettween piping and not piping. {data-transition="none-out"}
+
+```
+bop_on(
+  scoop_up(
+    hop_through(foo_foo, forest),
+      field_mouse
+    ),
+  head
+  )
+)
+```
+is much more confusing then...
+
+
+## Difference bettween piping and not piping. {data-transition="none-in"}
+
+```
+bop_on(
+  scoop_up(
+    hop_through(foo_foo, forest),
+      field_mouse
+    ),
+  head
+  )
+)
+```
+is much more confusing then...
+
+```
+foo_foo %>%
+  hop_through(forest) %>%
+  scoop_up(field_mouse) %>%
+  bop_on(head)
+)
+```
+## Difference bettween piping and not piping.
+You tell me, what is happening in this code?!
+
+```{r, eval=F, echo=T}
+hourly_delay <- filter(
+  summarise(
+    group_by(
+      filter(flights, !is.na(dep_delay)), 
+      date, hour), 
+    delay = mean(dep_delay), 
+    n = n()), 
+  n > 10
+)
+```
+
+*** 
+Is this easier to understand?
+```{r, eval=F, echo=T}
+hourly_delay <- flights %>% 
+  filter(!is.na(dep_delay)) %>%
+  group_by(date, hour) %>%
+  summarise(
+    delay = mean(dep_delay),
+    n = n()
+  ) %>% 
+  filter(n > 10)
+```
+
+
+
+# Rules for Piping 
+## as borrowed from Bob Rudis
+
+## Rules for Piping {.build}
+1. The pipe chain should be larger than 1
+1. A pipe group should be desgined to complete a specific task
+1. It is okay to change objects along the pipe (i.e pass in a dataframe and output a plot)
+1. Be data source aware
+1. Pipe operations should be "atomic"
+1. Keep your pipes "short"
+
+***
+
+### Pipe Chain should be larger than 1
+Do no do this
+```{r, eval=F}
+df %>% str()
+```
+when
+```{r, eval=F}
+str(df)
+```
+is so much more compact and easier to read. 
+
+***
+
+### A pipe group should be designed to complete a specific task
+Keeping a pipe group to one task will help with further rules (specifically length).
+
+***
+
+### It is okay to change object along the pipe
+
+Most commonly, you might go from a dataframe to a plot, or a list to a dataframe.
+
+```{r, fig.height=2, fig.width=4}
+iris %>% 
+  count(Species, sort=TRUE) %>%
+  mutate(Species=factor(Species, levels=Species)) %>%
+  ggplot(aes(Species, n, fill=Species)) + geom_col()
+```
+
+***
+
+### Pipe operators should be "atomic"
+
+>- This means that your pipe can have as many steps as want, but in the end should be doing ONE thing. This is to prevent wasting time if something goes wrong at the end of the pipe, making you start again.
+>- The other gotcha is getting a nice plot but losing the data behind it. It's a similar problem, but it’s an easy trap to fall into. (I do this all the time! Bad Erin.)
+
+***
+### Keep your pipes "short"
+
+All this to say, keep your pipes long enough to not add more confusion, and short enough to avoid breaking things. You'll find that you'll quickly discover what the right "length" for you is.
