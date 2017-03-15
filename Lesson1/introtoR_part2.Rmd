@@ -1,7 +1,7 @@
 ---
-title: "Introduction to R: Data Manipulation"
-output: 
-  html_notebook: 
+title: 'Introduction to R: Data Manipulation'
+output:
+  html_notebook:
     theme: cerulean
     toc: yes
     toc_depth: 2
@@ -10,10 +10,13 @@ output:
 ```{r, message=FALSE, warning=FALSE, include=FALSE}
 library(tidyverse)
 ```
+
+
+
 # Focusing on filter, select, group_by and summarise
 
 ## Filter
-The most important thing you can do to do big data is filter is down to smaller pieces.
+The most important thing you can do to do with the data is filter is down to smaller pieces.
 You can filter the data in different ways, as detailed in the image below.
 
 ![](images/filters.png)
