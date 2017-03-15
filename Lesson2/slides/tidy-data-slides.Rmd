@@ -1,0 +1,103 @@
+---
+title: "Tidy Data"
+author: "Erin Grand"
+date: "3/15/2017"
+output: revealjs::revealjs_presentation
+---
+
+
+```{r, message=FALSE, echo=FALSE}
+library(knitr)
+opts_chunk$set(collapse = FALSE)
+library(dplyr)
+library(tidyr)
+```
+
+
+### The essence of tidy data is:
+  
+1. Each variable forms a column
+1. Each observation forms a row
+1. Each type of observational unit forms a table
+
+-----
+
+### Why?
+
+- standarized
+- easier for you and others to analyze
+- easier for the computer to analyze
+- easier to go from Tidy format into other formats if needed
+
+-----
+
+Example: Is this messy or tidy data?
+
+```{r}
+head(iris)
+```
+
+-----
+
+Is this tidy data?
+```{r}
+gather(iris, petal_measurments, value, -Species) %>% head()
+```
+
+
+-----
+For a more detailed summary of the tidy data concept, see the `tidyr` vignette
+
+```
+browseVignettes("tidyr")
+```
+------
+
+# Cleaning and restructuring data
+
+
+## Step 1:  Make sure it imported correctly  
+
+- Are your column types correct?
+- Are all the columns and rows there?
+- How about your headers (if you have them)?
+- Did R give you any warnings?
+- Look at your data!
+
+
+## Step 2:  Tidy it up
+
+- Think about how you want your data structured for analysis
+- What are your observations?  What are your variables?  Do you need multiple tables to capture your data better?
+- Use `tidyr::gather()` and `tidyr::spread()` to appropriately transform your data
+- If you have super messy data with lots of code needed to clean it up consider saving a cleaned up copy of your data and creating a separate script that documents everything you did.
+
+# Analysis
+## Doing useful stuff with your data
+
+What you do next will depend on your own specific analyis.  Somethings you may do include:  
+
+- making plots
+- statistical summaries (mean, min, max, etc)
+- statistical tests (Are the means different? Did my experiment work?!?!)
+- add in to a larger data set such as sample data for an RNA-seq experiment
+
+
+## Pipes: Ceci n'est pas un pipe
+
+Don't forget to use your pipes!
+
+```{r}
+iris %>% 
+	gather(petal_measurments, value, -Species) %>% 
+	group_by(Species, petal_measurments) %>% 
+	summarise(mean = mean(value))
+```
+
+
+
+
+
+
+
+

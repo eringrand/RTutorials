@@ -6,6 +6,17 @@ output:
     theme: cerulean
 ---
 
+## Understanding your Data
+Before you try reading data into R, make sure you understand it first.
+
+- Do you have headers?
+- What is the separator?
+- What type of data do you have?  Numeric? Integers? Dates? Ranges?
+    * readr usually does a good job of auto-detecting column formats but you still have to check!
+- Are there lines you need to skip?
+
+Depending on the answers to some of these questions you may need to change the default behavior of the readr functions to help (i.e. different column types, separtors that are not a ",", NA value that is not blank...etc)
+
 ## In
 
 Format | Functions
@@ -53,6 +64,8 @@ f <- function(file, sheetname, cn){
 ```
 
 
-
 ## Other file types
 As well standard formats, there's a lot of connector packages out there, including a suite for [Hadoop](https://github.com/RevolutionAnalytics/RHadoop/wiki).
+
+
+x
