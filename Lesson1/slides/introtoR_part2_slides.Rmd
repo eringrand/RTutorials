@@ -19,6 +19,9 @@ library(tidyverse)
 ```
 
 
+## Tidy Data
+![]()
+
 ## Learn to think in Code
 How to do you currently think about a task in excel or tableau? Learn how to translate and use that process in code.
 
