@@ -14,6 +14,10 @@ library(tidyr)
 library(fivethirtyeight)
 ```
 
+## Tidy data
+<div class="centerd">!
+[](https://github.com/eringrand/RTutorials/blob/master/Lesson1/images/tidy-1.jpg)
+</class
 
 ### The essence of tidy data is:
   

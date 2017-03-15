@@ -2,7 +2,7 @@
 title: "Introduction to R: Tidyverse"
 author: "Erin Grand"
 date: "Oct 14, 2017"
-output: ioslides_presentation
+output: revealjs::revealjs_presentation
 ---
 
 # Introduction to R: Data Manipulation
@@ -13,24 +13,27 @@ Focusing on packages found in tidyverse
 Download tidyverse:
 Imports: dplyr, ggplot2, lubricate, readr, readxl, stringr, tibble, tidyr, magrittr
 if you're using multiple packages make sure you're loading them in the right order
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(readxl)
 library(tidyverse)
 ```
 
 
 ## Tidy Data
-<div class="centerd">![](https://github.com/eringrand/RTutorials/blob/master/Lesson1/images/tidy-1.png?raw=true)
+<div class="centerd">
+![](https://github.com/eringrand/RTutorials/blob/master/Lesson1/images/tidy-1.jpg?raw=true)
 </class>
 
+1. Each variable forms a column
+1. Each observation forms a row
+1. Each type of observational unit forms a table
+
 ## Learn to think in Code
-How to do you currently think about a task in excel or tableau? Learn how to translate and use that process in code.
+How to do you currently think about a task in excel or tableau? Learn how to translate and use that process in code. If you can relate it to how you already think you'll find it easier to transition between the two. 
 
 1. What is your process for creating a pivot table?
 1. What is your process for creating a new column?
-1. How do you sort things?
-
---
+1. How do you sort data?
 
 
 ## SPLIT APPLY COMBINE
@@ -40,12 +43,16 @@ How to do you currently think about a task in excel or tableau? Learn how to tra
 
 This will come back in a later lesson when we look at `PURR` and functional programing.
 
-##  Five Most Important DPLYR Functions/Verbs
-1.	Filter
-2.	Select
-3.	Arrange
-4.	Mutate
-5.	Group by, Summarize (Summarise)
+
+
+# DPLYR
+
+##  Five Most Important DPLYR Functions
+1.	`Filter`
+2.	`Select`
+3.	`Arrange`
+4.	`Mutate`
+5.	`Group_by`, `Summarize` (`Summarise`)
 
 
 ## Filter
@@ -53,14 +60,29 @@ Task: filter the IA data to only include NY 8th grade students Math tests. This 
 
 
 ## Select
+Task:
 
 ## Arrange
+Task:
 
 ## Mutate
+Task:
 
-## Group by
+## Group by and Summarize
 
 
 # Joins
 
-## Left Join
+## Which Join is which?
+<!-- ![]() -->
+
+## Left-Join vs Inner-Join vs Full-Join
+
+
+## Advantages of Anti-Join
+
+
+## What about Right-Join?
+- There aren't many use cases for right joining data, HOWEVER if you are piping a set of set which creates your map and you want to join it back to the orginal data, to continue the pipe you would use a right join.
+
+
