@@ -120,10 +120,12 @@ install.packages("tidyverse")
 <small>
 Once installed all the functions in a package are available to be used.
 </small>
+
 ```{r, eval=F, evcho=T}
 library(tidyverse)
 filter(iris, Species == "setosa")
 ```
+
 * <small> `library()` loads the package into memory and allows you to use the functions within without naming the package directly everytime. </small>
 * <small>  Technically what is happening here is that when attaching a package R puts those functions in your search path, the place R looks first for objects and functions. </small>
 * <small> This may cause problems if packages have functions with the same name. R will choose the version for the package loaded last. </small>
@@ -256,14 +258,14 @@ my_object
 iris[, 6]
 ```
 
-Hint:  How many columns does the `iris` data frame have?
+- Hint:  How many columns does the `iris` data frame have?
 
 ---- 
 ```{r, error=TRUE}
 sample[1:10,]
 ```
 
-Hint:  What does `typeof(sample)` give you? What about `sample(10)`?  Or `?sample`
+- Hint:  What does `typeof(sample)` give you? What about `sample(10)`?  Or `?sample`
 
 
 ---- 
@@ -280,14 +282,14 @@ if (nothing == NA) {
 }
 ```
 
-Hint:  What does `nothing == NA` give you?  How about `is.na(nothing)`?
+- Hint:  What does `nothing == NA` give you?  How about `is.na(nothing)`?
 
 ---- 
 ```{r, error=TRUE}
 my_data = read.table("mydata.txt")
 ```
 
-Hint: Read the error message carefully.
+- Hint: Read the error message carefully.
 
 ----
 ```{r, error=TRUE}
@@ -295,7 +297,7 @@ x = data.frame(y = NULL)
 x$y = 1:4
 ```
 
-Hint: How many rows does `x` have?
+- Hint: How many rows does `x` have?
 
 
 # Questions so Far

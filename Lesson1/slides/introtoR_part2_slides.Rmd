@@ -20,7 +20,8 @@ library(tidyverse)
 
 
 ## Tidy Data
-![](https://github.com/eringrand/RTutorials/blob/master/Lesson1/images/tidy-1.png?raw=true)
+<div class="centerd">![](https://github.com/eringrand/RTutorials/blob/master/Lesson1/images/tidy-1.png?raw=true)
+</class>
 
 ## Learn to think in Code
 How to do you currently think about a task in excel or tableau? Learn how to translate and use that process in code.
@@ -58,3 +59,8 @@ Task: filter the IA data to only include NY 8th grade students Math tests. This 
 ## Mutate
 
 ## Group by
+
+
+# Joins
+
+## Left Join
