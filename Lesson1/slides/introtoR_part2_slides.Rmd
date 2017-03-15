@@ -45,7 +45,7 @@ This will come back in a later lesson when we look at `PURR` and functional prog
 
 
 ## Filter
-Task: filter the IA data to only include 
+Task: filter the IA data to only include NY 8th grade students Math tests. This way you'll only looking at Regents test takers.
 
 
 ## Select
