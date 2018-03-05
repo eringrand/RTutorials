@@ -17,7 +17,6 @@ knitr::opts_chunk$set(collapse = TRUE)
 *Note that a much more detailed overview of subsetting can be found in the [Subsetting](http://adv-r.had.co.nz/Subsetting.html) chapter of Advanced R.*
 
 
-# Basic Subsetting
 
 ----
 
