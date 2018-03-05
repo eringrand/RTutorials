@@ -3,9 +3,10 @@ title: 'Introduction to R: The Very Basics'
 author: "Erin Grand"
 date: "Oct 14, 2017"
 output:
-  html_notebook:
+  html_document:
     theme: cerulean
     toc: yes
+    toc_float: yes
 ---
 
 # Installation
@@ -19,24 +20,35 @@ output:
 ```{r, echo=F, message=FALSE, warning=FALSE}
 library(tidyverse)
 ```
-# Begin Coding:
+# Begin Coding
 
-## Everyone's favorite first line of code: "Hello World"
+## "Hello World"
+
+Everyone's favorite first line of code. In R, to have the computer repeat what you type you use `print`.
+
 ```{r}
 print( "Hello world!" )
 ```
-# Assignment 
+## Assignment
 
-Why does this code not work?
+Why do you think this bit of code produces on error?
 
-```{r, eval=T}
+```{r eval=FALSE}
 my_variable < - 10
 my_variable
 ```
-Look carefully! (This may seem like an exercise in pointlessness, but training your brain to notice even the tiniest difference will pay off when programming.)
+
+```
+Error: object 'my_variable' not found
+```
+
+Look carefully! (This may seem like an exercise in pointlessness, but training your brain to notice even the tiniest difference will pay off when coding.)
 
 
-# Comments
+## Comments
+
+Comments are bits of text that you don't want the computer to treat as "code." You should always comment your scripts, usually with explanations of WHY you made certain decisions. 
+
 ```{r}
 # This is a comment
 #### This is also a comment
@@ -61,10 +73,10 @@ Complex | i
 Date | "2015-04-24"
 
 
-### Single Values
+## Single Values
 
 #### Numbers: Double and Integers
-```{r}
+```{r collapse = TRUE}
 1.5
 typeof(1.5)
 as.integer(42)
@@ -72,36 +84,41 @@ typeof(as.integer(42))
 ```
 
 #### Boolean values: TRUE (T) or FALSE (F) 
-- For multiple conditions & is and and | is or
-- Equals: ==
-- Not Equals: !=
-```{r}
+
+For multiple conditions
+
+-  & is _and_  
+- | is _or_
+- == is _is equals to_
+-  != is _is not equal to_
+
+```{r collapse = TRUE}
 FALSE
 F
 TRUE
 T
-5 > 43
-42 <= 18 & 18 > 10
+5 > 43 
+42 <= 18 & 18 > 10 
 42 <= 18 | 18 > 10
 ```
 
 #### Characters
-designated as such by the quotes
-```{r}
+Characters are designated as such by the quotes. It's best to always use double quotes around your characters.
+```{r collapse = TRUE}
 "My name in Erin"
 "52%"
 typeof("52%")
 ```
 
-#### Factors
-Some values you want to have levels instead of individual values. For example, survey results on a 1-5 scale. 
-```{r}
-factor(c("Big", "Semi-Big", "Semi-Small", "Small", "Tiny"))
-```
-We'll talk more about factors at a later time. For now, **TRY NOT TO USE THEM UNLESS NEEDED.** They can be super confusing and annoying.
+<!-- #### Factors -->
+<!-- Some values you want to have levels instead of individual values. For example, survey results on a 1-5 scale.  -->
+<!-- ```{r collpase = TRUE} -->
+<!-- factor(c("Big", "Semi-Big", "Semi-Small", "Small", "Tiny")) -->
+<!-- ``` -->
+<!-- We'll talk more about factors at a later time. For now, **TRY NOT TO USE THEM UNLESS NEEDED.** They can be super confusing and annoying. -->
 
 
-#### Data Type Functions
+## Data Type Functions
 Function | Use
 ------------- | -------------
 is.[data type] | Whether a vector is of a particular type
@@ -114,7 +131,9 @@ unlist | Simplify a list to a vector
 dim | Dimensions of a data type
 
 
-### Compound data types
+# Compound data types
+When you have more then just one data point, you need to combine them together in some logical way. This is a "compond data type."
+
 Data type | Info | Construction example(s)
 ------------- | ------------- | -------------
 Vector | A 1D set of values of the same data type | `c(1,"a")` , `1:3`
@@ -123,14 +142,17 @@ Array | An nD set of values of the same data type | `array(LETTERS, c(13,2))`
 Data.frame  | A 2D set of values of different data types | `data.frame(a=1:26, b=11:36)`
 List | A collection of objects of various data types | `list(vector=c(1,"a")`, `df=data.frame(a=1:6))`
 
-#### Vectors
-```{r}
+## Vectors
+
+These are some examples of vectors. You can create a vector with a function like `seq` or by joining items together using `c()`.
+
+```{r collapse = TRUE}
 c(1, 2, 3, 4, 5)
 seq(0, 4, .25)
 1:5
 ```
-#### This is also a vector!
-```{r}
+
+```{r collapse = TRUE}
 c("Hello", "world")
 ```
 
@@ -142,9 +164,10 @@ c(1, 4, FALSE, "Erin")
 ```
 No! Notice how R turned all of the values into CHARACTERS even if they were numbers.
 
+## Subsetting a Vector
+*To get a particular value out of a vector, you can access it's index.* This is a version of "subsetting," we'll touch more on this later. The important part is that indexes in R start at 1, so the first value is at `x[1]` NOT `x[0]`.
 
-*To get a particular value out of a vector, you can access it's index.*
-```{r}
+```{r collapse = TRUE}
 x <- 5:10
 x
 x[2]
@@ -153,31 +176,33 @@ x[2]
 
 
 
-#### Lists
+## Lists
 ```{r}
 list(1:5, 2:4)
 ```
 Notice that I've made a list of vectors! A list of lists (or vectors). When each of the vectors is the same length can be easily converted to a table, ie. a data frame!
 
 
-#### Data Frames and Data Tables
+## Data Frames
+
 - Each observation is it's own row
 - Each column represents a measure or characteristic
-```{r}
-x <- list(c(1:5), c(2:6))
-x
-data.frame(x)
-#or as from vectors, the most common way to use data frames
-data.frame(x = c(1:3), y = c(3:5))
+- We're going to largely be using _tibbles_, which are the same thing as data frames, but a little fancier.
+
+```{r collapse = TRUE}
+# start with vectors of the same length
+tibble::tibble(x = c(1:3), y = c(3:5))
 ```
-Normally you'll be loading in your own data frame from a CSV or excel sheet, or forming your own from vectors or lists.
+
+Normally you'll be loading in your own data frame from a CSV or excel sheet,
+or forming your own from vectors or lists.
 
 
 # Iris Dataset: 
 *Let's look at a toy dataset to play with*
 We will assign the first few rows of the Iris data set to a toy data frame to play with
 
-```{r}
+```{r collapse = FALSE}
 # assign the first 6 rows of the iris dataset as a toy dataframe
 df <- head(iris)
 df
@@ -188,28 +213,33 @@ str(df)
 # compute summary statistics for each column
 summary(df)
 ```
+
+
 You can also use mean(), max(), min()...etc to look at the statistic of a particular list.
 ```{r}
-mean(df$Petal.Width)
+mean(df$Petal.Width) # rember the $ calls a particular column in a data frame
 ```
 
-#### Indexing Data Frames: Look at a set of particular rows or columns
+## Indexing Data Frames
+i.e Look at a set of particular rows or columns.
+
+Data Frames are called with [row, column]
+
+
 ```{r}
 # look at the fifth row
 df[5, ]
 ```
 
 ```{r}
-# three different ways to look at the second column
+# three different ways to look at just the second column
 # by index
-df[ , 2]
+df[ ,2]
 df$Sepal.Width
-df[2]
-
-
+df[2] # For a data frame, R assumes a default of "column" if you only give it one number to index with
 ```
 
-#### We can even filter the dataframe to only look at particular values 
+We can even filter the data frame to only have particular rows 
 ```{r}
 # find rows with Sepal.Length at least 5
 df$Sepal.Length >= 5
@@ -219,82 +249,78 @@ df[df$Sepal.Length >= 5, ]
 
 # nicer syntax for the same thing
 # note: the second entry of subset is a logical vector
-subset(df, Sepal.Length >= 5)
-```
-
-#### You can filter two conditions by using multiple arguments in the filter function.
-```{r}
-# filter ANDs conditions when given multiple arguments
-filter(df, Sepal.Length >= 5, Petal.Length <= 1.4)
+# we'll learn more about dplyr functions soon
+dplyr::filter(df, Sepal.Length >= 5)
 ```
 
 
 
-#### Looking back at the full dataset, let's see how many Species are there.
+Looking back at the full dataset, let's see how many Species are there.
 ```{r}
 # get a list of all unique species
 unique(iris$Species)
 ```
+
+
 If we just wanted to get the number of species, we could look at the length of this vector.
 ```{r}
 length(unique(iris$Species))
 ```
 
 
-#### count the number of rows for each species
-```{r}
-table(iris$Species)
-```
+<!-- count the number of rows for each species -->
+<!-- ```{r} -->
+<!-- table(iris$Species) -->
+<!-- ``` -->
 
 
-#### you can also count the number of rows for each species that have a sepal width longer than 3
-```{r}
-table(iris$Species, iris$Sepal.Width > 3)
-```
+<!-- #### you can also count the number of rows for each species that have a sepal width longer than 3 -->
+<!-- ```{r} -->
+<!-- table(iris$Species, iris$Sepal.Width > 3) -->
+<!-- ``` -->
 
 
-# Vector Operations
-How do I add 10 to this vector?
-```{r}
-1:10
-```
+<!-- # Vector Operations -->
+<!-- How do I add 10 to this vector? -->
+<!-- ```{r} -->
+<!-- 1:10 -->
+<!-- 1:10 + 10 -->
+<!-- ``` -->
 
 
-# Loops:
-### IF, IF...ELSE... and IFELSE
+# IF... ELSE...
 
-#### If something is true, do this.
-```{r}
-i <- 42
-if(i > 10){print(i)}
-```
-#### If something do this, otherwise do this instead:
-```{r}
-if(i < 10) 
-{ 
+The general IF.. ELSE.. statement in R looks like this
+```{r eval = FALSE}
+if(i < 10)
+{
     print(i)
-}else 
-{ 
-  print("nope") 
+}else
+{
+  print("nope")
 }
 ```
-#### You can also use a similar function to the IF in excel: IFELSE
+However, there is a simpler version that you can use to create new columns in data frames.
+
+
+**You can also use a similar function to the IF in excel: `IFELSE`**
 This is very helpful to create columns in tables. I.E. if a student is or is not an ES grad.
 
 ```{r}
 x <- seq(1, 10, .5)
 ifelse(x == floor(x), 1, 0)
 ```
+In a data frame you might do...
 
 ```{r}
-df <- data.frame(x = 1:50, y= sample(1:100)[1:50])
+df <- tibble::tibble(x = 1:50, y= sample(1:100)[1:50])
 df
 df$yinx <- ifelse(df$y %in% df$x, 1, 0)
 df
 ```
 
 
-### For Statement and Apply Functions
+# For Loop
 A traditional for loop looks like:
 
 ```{r}
@@ -302,13 +328,11 @@ for(i in 1:10){
   print(i)
 }
 ```
-For loops are VERY SLOW because they do the same thing over and over again. R has a BETTER way to do this. `map_?()` is a function in the PURR package. We can discuss this more later. For now, a quick exmaple:
+For loops are SLOW because they do the same thing over and over again. There are usually better ways to do what you want to do without a for loop, but they're good to keep in mind.
 
-```{r}
-map_int(1:10, print)
-```
 
-## Help
+
+# Help
 Google is your number one friend!
 You can also access the correct syntax for a command in R with `help(function)` or `?function`
  
@@ -317,8 +341,8 @@ You can also access the correct syntax for a command in R with `help(function)` 
 help(mean)
 ```
 
-## Now you Try!
-#### Using the *mpg* dataset, answer these questions.
+# Now you Try
+#### Using the *mpg* dataset from the `ggplot2` package, answer these questions.
 
 1. What is the manufacturer, model, and year of the car in the 42nd row?
 1. How many models of cars are in this data set? How many manufactures?
@@ -326,6 +350,17 @@ help(mean)
 1. How many miles per gallon ON AVERAGE do the cars get on the highway? In the city?
 1. How many models of cars did Audi make in 1999?  
 
+
+**Answers** - check your work
+```{r collapse=TRUE, echo = FALSE}
+library(ggplot2)
+data(mpg)
+mpg[42, c(1, 2, 4)] 
+c(length(unique(mpg$model)), length(unique(mpg$manufacturer)))
+nrow(mpg[mpg$cty > 19, ])
+c(mean(mpg$hwy), mean(mpg$cty))
+nrow(dplyr::filter(mpg, manufacturer == "audi", year == 1999))
+```
 
 
 
