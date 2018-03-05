@@ -8,36 +8,36 @@ I'm helping my coworkers expand their use and knowledge of R. This is will be th
 
 ## Lesson 1
 ### Slides
-- [Rstudio Basics](Lesson1/slides/intro_to_Rstudio_slides.html){:target="_blank"}
-- [Basics of R Coding](Lesson1/slides/introtoR_basics_slides.html){:target="_blank"}
-- [The Pipe](Lesson1/slides/introtoR_pipe_slides.html){:target="_blank"}
-- [Transforming Data](Lesson1/slides/introtoR_part2_slides.html){:target="_blank"}
+- [Rstudio Basics](Lesson1/slides/intro_to_Rstudio_slides.html)
+- [Basics of R Coding](Lesson1/slides/introtoR_basics_slides.html)
+- [The Pipe](Lesson1/slides/introtoR_pipe_slides.html)
+- [Transforming Data](Lesson1/slides/introtoR_part2_slides.html)
 
 ### Workbooks
-- [Data Input and Output](Lesson1/io.html){:target="_blank"}
-- [Basic R](Lesson1/introtoR.nb.html){:target="_blank"}
-- [Transforming Data](Lesson1/introtoR_part2.nb.html){:target="_blank"}
-- [Subsetting](Lesson1/subsetting.html){:target="_blank"}
+- [Data Input and Output](Lesson1/io.html)
+- [Basic R](Lesson1/introtoR.nb.html)
+- [Transforming Data](Lesson1/introtoR_part2.nb.html)
+- [Subsetting](Lesson1/subsetting.html)
 
 <!-- ### Assignments -->
 <!-- - [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"} -->
 
 ## Lesson 2
 ### Slides
-- [Style Best Practices](Lesson2/best_practices.html){:target="_blank"}
-- [Tidy Data](Lesson2/slides/tidy-data-slides.html){:target="_blank"}
-- [More with Mutate](Lesson2/slides/mutate_review.html){:target="_blank"}
-- [Writing Functions](Lesson2/slides/writing_functions_slides.html){:target="_blank"}
-- [Janitor Package](Lesson2/slides/janitor.html){:target="_blank"}
+- [Style Best Practices](Lesson2/best_practices.html)
+- [Tidy Data](Lesson2/slides/tidy-data-slides.html)
+- [More with Mutate](Lesson2/slides/mutate_review.html)
+- [Writing Functions](Lesson2/slides/writing_functions_slides.html)
+- [Janitor Package](Lesson2/slides/janitor.html)
 
 ---
 
 ## Rstudio Cheatsheets
-<!-- - [Base R](http://github.com/rstudio/cheatsheets/raw/master/source/pdfs/base-r.pdf){:target="_blank"} -->
-- [Rstudio IDE](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf){:target="_blank"}
+<!-- - [Base R](http://github.com/rstudio/cheatsheets/raw/master/source/pdfs/base-r.pdf)
+- [Rstudio IDE](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
 <!-- - [Data Import](https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-import-cheatsheet.pdf){:target="_blank"} -->
-- [Data Wrangling](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf){:target="_blank"}
-- [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf){:target="_blank"}
+- [Data Wrangling](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+- [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
 ## Other
 - [Notes from a talk at Columbia by Hadley Wickham: Data Science in R](hadley_notes.nb.html){:target="_blank"}
