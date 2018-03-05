@@ -1,0 +1,71 @@
+---
+title: "Dealing With Text"
+date: '`r Sys.Date()`'
+output: revealjs::revealjs_presentation
+---
+
+
+Functions to know and love:
+
+* grepl
+* gsub
+* regexpr
+
+
+sub vs gsub
+
+The two *sub functions differ only in that sub replaces only the first occurrence of a pattern whereas gsub replaces all occurrences. 
+
+---
+
+Stringr
+
+* str_sub
+* str_count
+* str_length (similar to nchar, but takes in a vector of strings)
+* str_detect
+* str_extract
+* str_replace
+* str_to_lower
+* str_to_upper
+* `str_trim` (same as `trimws()`)
+* str_c
+
+Write a function that turns (e.g.) a vector c("a", "b", "c") into the string a, b, and c. Think carefully about what it should do if given a vector of length 0, 1, or 2.
+
+```{r}
+library(stringr)
+my_function <- function(input){
+  lastchar <- length(input)
+  if(lastchar < 2) x <- str_c(input)
+  else if(lastchar == 2) x <- str_c(input[1], " and ", input[2])
+  if (lastchar > 2) {
+      input[lastchar] <- str_c("and", input[lastchar], sep=" ")
+      x <- str_c(input, collapse = ", ")
+  }
+  return(x)
+}
+
+my_function(c("a", "b", "c"))
+```
+
+---
+
+## Which string function should you use?
+
+
+`base` | `stringr`
+---|---
+substr | str_sub 
+(g)sub | str_replace(_all)
+tolower | str_to_lower
+toupper | str_to_upper
+trimws | str_trim
+grepl | str_detect 
+nchar | str_length
+strsplit | str_split
+paste | str_c
+
+Others:
+str_Count
+str_pad

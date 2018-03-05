@@ -1,0 +1,92 @@
+---
+title: R Tutorials Lesson Plans
+output: 
+  html_notebook: 
+    theme: cerulean
+    toc: yes
+---
+
+# Lesson 1: RStudio IDE, Basic R, Pipe rules, DPLYR Verbs
+
+## Requirements:
+* Office space that is zoom friendly
+* Zoom or google hangout connection to screen share to office
+* Ability for participants to login to zoom/hangout and take over the screen to demonstrate code (via share screen or mouse take over)
+
+## Slide Sets
+
+### Rstudio
+#### Code Calling Questions
+- What's in the bottom right corner of the screen? <A: Packages, help, view, plots...etc>
+- What is a "console"? <A: It's the place where all the code is executed, even code not written specifically in the console is executed in it. Rstudio shares the same>
+- Where can I find HELP in Rstudio itself? (Ask someone to demonstrate.) <A: bottom right, tab that says help>
+- How do I get to the ready made cheat sheets? (Ask someone to demonstrate.)
+- What's the difference between an R Notebook and a R script? <A: R Notebooks contain code chunks and text, scripts are just code.>
+- Should you save your workplace when you log out? <A: No, unless it's takes *tons* of time to load the data in and you don't want to lose your work space objects. HOWEVER, even so, it's better for reproducible to check from the beginning.>
+- first started, when do you break up blocks of code
+
+
+#### Share outs:
+
+- Okay, NAME, please demonstrate where I go to download a new package.
+
+
+### Basic R
+
+#### Code Calling Questions
+- Slide 5.4: Explain why you'd want to use a package. <A: many fun tools inside, don't have to reinvent the wheel>
+- Slide 6.2: How can I tell the difference between a number written as a character/string and a numeric number? <A: quote marks>
+- Slide 6.4: Can I combine data types in one vector? ex c(1, 4, FALSE, "Erin") <A: no>
+- Slide 8.5: Explain what a negative integer subet is returning. <A: Everything but that number>
+- Slide 9.2: Please tell me what the paremters are required for the `read_excel` function. What (if any) are optional parmeters are there? <A: ?read_excel>
+- Slide 10 - 11: errors (questions on slides) 
+- slide 11.1: What are the steps to go through when you have an error?
+
+
+#### Share outs:
+
+
+### Pipe
+#### Code Calling Questions
+- who has seen this painting (close the joke)
+- explanation around the purpose can be simple and pipe (analogy simplicity of pipe)
+EXAMPLE OF MARIO PIPES save you time effeort and energy. 
+- chart paper
+
+- Slide 2.5: Explain what  this is code doing? <A: Return a data frame that is filtered to cars that get 31 mgp or more and converts mpg to kpl.>
+- Slide 3.2: Explain what this code is doing?
+- Slide 3.11: Explain what this code is doing?
+- Slide 4.6: What is an object? <A: how the information is organized (data frame, list, vector, plot device..etc)
+- Slide 5.2: Explain the rules of pipes 
+- When not to use the pipe <A: You have multiple inputs or outputs. If there isn’t one primary object being transformed, but two or more objects being combined together, don’t use the pipe. You are starting to think about a directed graph with a complex dependency structure. Pipes are fundamentally linear and expressing complex relationships with them will typically yield confusing code.>
+
+
+#### Share outs:
+- Slide 3.8 pipe story
+
+### Data Transformation
+#### Code Calling Questions
+- Slide 2.3: What data, that we have, is NOT tidy?
+- Slide 3.1: What the heck is dplyr?
+- Slide 3.12: What functions did I use here? 
+- Slide when to use group_by and not summarize
+- what to use in mutate and what not to?
+- play around when to use left join vs not? 
+- best practices around mapping left join
+- Left joins (make your table, read it in?)
+
+#### Share outs:
+- Slide 2.4: Explain how you would procede in a data transforming task in excel. What pieces of data do you need? What functions?
+- Task slide 3.5: filter
+- Task slide 3.8: select (passing rate: cut score, ia score, student id...etc)
+- Task slide 3.9: mutate (avengers + make pass column)
+- Task Slide 3.13: arrange
+
+## Reminders
+- Script up the shares of what you've done.
+- let's talk about what happened in this code why didn't they get what they wanted...etc... <- discussion
+
+### Wrap Up
+- which commands are specif to which package, which are basic?
+- packages, which ones do I need? how do i find out which ones I need?
+

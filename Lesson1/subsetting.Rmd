@@ -1,5 +1,10 @@
 ---
 title: "Subsetting"
+output:
+  html_document:
+    theme: cerulean
+    toc: yes
+    toc_float: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -53,7 +58,7 @@ Data frames can be indexed with a single vector like list (remember data frame c
 * You can also `[[` and `$` to subset.  
 * The difference is the type of object they return.  
 * `[[` is most useful for lists because `[` always returns a list and not the actual value.  
-* However, `[[` only returns a single value so it can only be used with a single positive integer or a string. `$` is short hand for `[[` with characters.
+* However, `[[` only returns a single value so it can only be used with a single positive integer or a string. 
 
 
 ----

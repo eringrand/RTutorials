@@ -7,6 +7,11 @@ output: revealjs::revealjs_presentation
 
 
 ## Rstudio
+
+Review questions.
+
+---
+
 ##### Let's now take some time to really poke around at Rstudio as a program.
 >- Scripts and tables
 >- Enviroment and History
@@ -37,3 +42,15 @@ Try clicking on one of the variables with a BLUE ARROW. What did you see?
 1. **Plots:** Any plots that you produce be in the "Plots" tab. It will keep a history so you can see changes as you make them.
 1. **Packages:** You can download new packages by clicking *Packages -> Install*. You can load packages by checking them off, but this is best done in your scripts!
 1. **Help:** Have a question on syntax of a command? You can look at it's help page by searching for it. You can also poke around tutorials and FAQ.
+
+
+# Tips and Tricks
+## Some Tips and Tricks
+>- **Use tab complete:** Press "tab" after typing the first few letters to find the function, variable, or file that you need without having to type it all in.
+>- **Highlight Strings:** You can highlight what you want to put quotes around at once.
+>- **Short Cuts:** Hightlight what you want to run and press CNT-ENTER to run it.
+      * Alt-Shit-K will bring up all the possible shortcuts. Once you get the hang of them, you can start creating your own. 
+  
+<div, align="right">    
+![](http://emojis.slackmojis.com/emojis/images/1450319441/5/sheepy.gif?1450319441)
+</div>

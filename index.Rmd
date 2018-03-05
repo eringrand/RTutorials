@@ -1,0 +1,51 @@
+---
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+## Welcome to My R Tutorials Page.
+I'm helping my coworkers expand their use and knowledge of R. This is will be the main resource for putting my materials until I find a different place.
+
+## Lesson 1
+### Slides
+- [Rstudio Basics](Lesson1/slides/intro_to_Rstudio_slides.html){:target="_blank"}
+- [Basics of R Coding](Lesson1/slides/introtoR_basics_slides.html){:target="_blank"}
+- [The Pipe](Lesson1/slides/introtoR_pipe_slides.html){:target="_blank"}
+- [Transforming Data](Lesson1/slides/introtoR_part2_slides.html){:target="_blank"}
+
+### Workbooks
+- [Data Input and Output](Lesson1/io.html){:target="_blank"}
+- [Basic R](Lesson1/introtoR.nb.html){:target="_blank"}
+- [Transforming Data](Lesson1/introtoR_part2.nb.html){:target="_blank"}
+- [Subsetting](Lesson1/subsetting.html){:target="_blank"}
+
+<!-- ### Assignments -->
+<!-- - [Using the Tidyverse](Lesson1/Assignment/assignment_2.R){:target="_blank"} -->
+
+## Lesson 2
+### Slides
+- [Style Best Practices](Lesson2/best_practices.html){:target="_blank"}
+- [Tidy Data](Lesson2/slides/tidy-data-slides.html){:target="_blank"}
+- [More with Mutate](Lesson2/slides/mutate_review.html){:target="_blank"}
+- [Writing Functions](Lesson2/slides/writing_functions_slides.html){:target="_blank"}
+- [Janitor Package](Lesson2/slides/janitor.html){:target="_blank"}
+
+---
+
+## Rstudio Cheatsheets
+<!-- - [Base R](http://github.com/rstudio/cheatsheets/raw/master/source/pdfs/base-r.pdf){:target="_blank"} -->
+- [Rstudio IDE](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf){:target="_blank"}
+<!-- - [Data Import](https://github.com/rstudio/cheatsheets/raw/master/source/pdfs/data-import-cheatsheet.pdf){:target="_blank"} -->
+- [Data Wrangling](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf){:target="_blank"}
+- [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf){:target="_blank"}
+
+## Other
+- [Notes from a talk at Columbia by Hadley Wickham: Data Science in R](hadley_notes.nb.html){:target="_blank"}
+
+---
+## Support or Questions
+Email me at erin.grand@uncommonschools.org with any questions or comments. If you find any typos, feel free to send in a pull request to fix them. 
+
+## Acknowledgements
+Special Thanks to Hadely Wickham and Steph Locke for getting me started. I proudly borrowed materials from both of them and the UCVM R Bootcamp. More complete citations and thanks [here](acknowledgements.html).
+

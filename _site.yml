@@ -1,0 +1,27 @@
+name: "Tutorials by Erin"
+output_dir: '.'
+exclude: ["donotrun/*"]
+navbar:
+  title: "R Tutorials"
+  left:
+  - text: "Slides"
+    href: slides.html
+  - text: "Worksheets"
+    href: worksheets.html
+  - text: "Rstudio Cheatsheets"
+    href: cheatsheets.html
+  right:
+  - text: "Acknowledgements"
+    href: acknowledgements.html
+  - icon: fa-envelope fa-lg
+    href: contact.html
+  - icon: fa-github fa-lg
+    href: https://github.com/eringrand/RTutorials
+output:
+  html_document:
+    theme: cerulean
+    toc: yes
+    toc_float: yes
+    include:
+      after_body: footer.html
+    css: "styles.css"

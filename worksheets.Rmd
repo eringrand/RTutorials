@@ -1,0 +1,11 @@
+---
+title: "Worksheets"
+output: html_document
+---
+
+# Workbooks
+
+- [Data Input and Output](Lesson1/io.hmtl){:target="_blank"}
+- [Basic R](Lesson1/introtoR.nb.html){:target="_blank"}
+- [Transforming Data](Lesson1/introtoR_part2.nb.html){:target="_blank"}
+- [Subsetting](Lesson1/subsetting.html){:target="_blank"}

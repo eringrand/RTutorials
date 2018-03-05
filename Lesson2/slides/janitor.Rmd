@@ -1,0 +1,88 @@
+---
+title: "Janitor"
+date: "June 6, 2017"
+output: html_document
+---
+
+From the description file: 
+
+Janitor was built with beginning-to-intermediate R users in mind and is optimized for user-friendliness. Advanced users can already do everything covered here, but they can do it faster with janitor and save their thinking for more fun tasks.
+
+---
+
+The janitor functions expedite the initial data exploration and cleaning that comes with any new data set. This catalog describes the usage for each function.
+
+---
+
+You should be able to do everything inside janitor on your own, but we don't have the time to always clean up data without help.
+
+![](http://media3.giphy.com/media/3oKIPCSX4UHmuS41TG/giphy-downsized.gif)  
+
+---
+
+Benefits to using Janitor over writing your own code:
+
+- Functions are well tested
+- Data obeys Hadley's official style guide
+- Generally turn many lines of code into one or two (huzzah!)
+- Pipe-able
+- Written for the education data space
+
+---
+
+
+
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library("janitor")
+library("readxl")
+library("dplyr")
+```
+
+
+Two main functions I use all the time:
+
+- `clean_names()`
+- `get_dupes()`
+
+![](http://media1.giphy.com/media/39V5OwGouQ9S8/giphy-downsized.gif)
+
+
+---
+
+Other really usual functions:
+
+- `remove_empty_rows()` 
+- `remove_empty_cols()`
+- `excel_numeric_to_date()`
+
+
+## Example 
+
+```{r, message=FALSE, warning=FALSE}
+filepath <- "S:/Data Analytics/State Test Analysis/2016-2017/Uncommon Roster Prep/~Data/Source/Uncommon Roster 2016-17.xlsx"
+read_excel(filepath, sheet="Sheet1", col_types = "text") %>%
+  clean_names() %>%
+  remove_empty_cols() %>%
+  remove_empty_rows() %>%
+  mutate_at(vars(entrydate, exitdate, student_id, yearsinuncommon), as.numeric) %>%
+  mutate_at(vars(entrydate, exitdate), excel_numeric_to_date) %>%
+  head()
+```
+
+
+---
+
+Even more functions
+
+- `tabyl()`
+- `adorn_totals("row")`
+- `crosstab()`
+- `adorn_crosstab()`
+
+---
+
+*Activity*: Find the user guide for Janitor.
+
+
+

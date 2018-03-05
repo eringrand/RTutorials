@@ -1,0 +1,244 @@
+---
+title: "More cool things with mutate"
+date: "June 6, 2017"
+output: revealjs::revealjs_presentation
+---
+
+Using `mutate` can sometimes feel like...
+
+![](https://media1.giphy.com/media/BJmTtZL4hova8/giphy-downsized.gif)  
+
+---
+
+But soon you will be a mutate expert and everything will be...
+
+![](https://media4.giphy.com/media/pYCZPDymIVjeo/giphy.gif)  
+awesome.
+
+---
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library("dplyr")
+library("purrr")
+library(readr)
+```
+
+
+# Mutate - itself
+
+## No more nested Ifs!
+
+![](https://media2.giphy.com/media/hP8xenrzdIhqw/giphy-downsized.gif)  
+
+
+```{r, eval=FALSE}
+mutate(grade_group = 
+         ifelse(Grade >= 5 & Grade <= 8 & Subject == "ELA", "5-8", 
+                  ifelse(Grade >= 5 & Grade <= 8 & Subject == "Math", "5-7", 
+                         ifelse(Grade < 5, "3-4", "Unknown")
+                        )))
+```
+
+---
+
+### Correction 1 - multiple if statements, on their own:
+I find this works really well for small data, otherwise you're adding time to the process. 
+
+```{r, eval=FALSE}
+mutate(grade_group = ifelse(Grade >= 5 & Grade <= 8 & Subject == "ELA", "5-8", NA),
+       grade_group = ifelse(Grade >= 5 & Grade <= 8 & Subject == "Math", "5-7", grade_group),
+       grade_group = ifelse(Grade < 5, "3-4", "grade_group"))
+```
+
+---
+
+### Correction 2 - translation table
+For larger data, joining against a translation table may be faster. 
+```{r}
+grade_group <- tibble(grade = 3:8, 
+                      ela_group = c("3-4", "3-4", rep("5-8", 4)), 
+                      math_group = c("3-4", "3-4", rep("5-7", 4))
+                      )
+grade_group
+```
+
+```{r, eval=FALSE}
+results <- results %>% left_join(grade_group, by="grade")
+```
+
+---
+
+## Correction 3 - `case_when()`
+THANK YOU DPLYR! Now that this is in full working order, this is the best solution to the nested if problem.
+```{r, eval=FALSE}
+mutate(grade_group = case_when(
+  Grade < 5 ~ "3-4",
+  Grade <=8 & Subject == "ELA" ~ "5-8",
+  Grade <= 8 & Subject == "Math" ~ "5-7",
+  TRUE ~ NA
+)
+```
+
+
+
+
+## `group_by` and `mutate`
+
+A grouped data frame is really useful to work with mutate statements. You can do ranking, summarizing, filtering..etc on your groups without losing data.
+
+
+---
+
+Example: _So I have this file with student profile info, but each student has one record per school year, so Ying has 9th grade, 10th grade, and 11th grade. I want to create a file with one row per student, taking only the latest year._
+
+---
+
+```{r, eval=FALSE}
+df %>%
+  group_by(student_id) %>% 
+  mutate(max_year = max(school_year) %>% 
+  filter(school_year == max_year) %>% 
+  ungroup()
+```
+
+---
+
+Example:
+_I want to rank schools by their sccores on a particular subject._
+
+---
+
+```{r, eval=FALSE}
+schools %>% 
+  group_by(subject) %>%
+  mutate(rank = min_rank(percent_correct))
+```
+
+
+
+
+
+
+# Update Multiple Columns at Once
+
+
+## `mutate_at`/`summarise_at`:
+
+- Useful for when you need to apply the same function to many columns (i.e `as.numeric()`)
+- It will automatically mutate all your columns at once.
+- You need to tell mutate which columns you want it to look at, and what to do with them.
+- You can give it multiple columns and multiple functions. All functions will act on all columns.
+
+```{r, eval=FALSE}
+mutate_at(vars(), funs())
+```
+
+---
+
+### Example
+
+```{r, eval=FALSE}
+results %>%
+  mutate_at(vars(score, grade), as.numeric)
+```
+
+
+
+---
+
+## `mutate_if`/`summarise_if`:
+
+inputs: test, function(s)
+```{r, eval=FALSE}
+summarise_if(is.numeric, funs(mean, min, max, sd, n))
+summarise_if(is.numeric, as.character)
+summarise_if(is.numeric, as.factor)
+```
+
+
+## Task 1
+Find the the mean of ALL the columns in the PARCC scores data set with "SCORE" in the name AND all columns that R knows are numbers.
+
+```{r}
+parcc_scores <- read_rds("S:/Data Analytics/State Test Analysis/2016-2017/PARCC/Results Release/~Data/Processed/Uncommon Student-level results/Output/PARCC_SY1617_results_ESMS.rds") 
+```
+
+```{r, echo = FALSE}
+mutate_at(parcc_scores, vars(dplyr::contains("score")), as.numeric) %>%
+  janitor::clean_names() %>%
+  summarise_if(is.numeric, mean, na.rm=TRUE) %>%
+  select(-student_id)
+```
+
+## Task 2
+
+- Take the PARCC state test data and create a table of percent correct per exam AND average scaled scores.  Use `summarise_at` or `summarise_if` NOT `summarise`.
+- Extra credit: Use `SPREAD` to create ELA and Math versions of BOTH proficient and score.
+
+```{r, eval = FALSE}
+parcc_scores <- read_rds("S:/Data Analytics/State Test Analysis/2016-2017/PARCC/Results Release/~Data/Processed/Uncommon Student-level results/Output/PARCC_SY1617_results_ESMS.rds")
+```
+
+```{r, include-FALSE, echo=FALSE}
+parcc_scores %>%
+  janitor::clean_names() %>%
+  rename(grade = grade_enrolled) %>%
+  mutate_at(vars(proficient, score), as.numeric) %>%
+  group_by(grade, report_subject)  %>%
+  summarise_at(vars(proficient, score), mean, na.rm=TRUE) %>%
+  head()
+```
+
+
+## Task 3
+
+Clean up this set of code to use summarise_at and mutate_at where useful. Do not worry about all the column names being the same as they are now. :) 
+
+```{r, eval = FALSE}
+combinedSurveyTransp <- read_rds("S:/Data Analytics/Staff Analyses/Staff Survey/temp/combined_survey_tranporse.rds")
+
+schoolSummary<-combinedSurveyTransp %>%
+  group_by(Region,School,Grade.Span, School.Year, Please.select.your.role, Q.Display, Q.Category,For.how.long.have.you.been.with.Uncommon.Schools, Principal, DOO) %>%
+  summarise(
+  LikertAvg=sum(Likert,na.rm=TRUE),
+  Likert5=sum(Likert5,na.rm=TRUE),
+  Likert4=sum(Likert4,na.rm=TRUE),
+  Likert3=sum(Likert3,na.rm=TRUE),
+  Likert2=sum(Likert2,na.rm=TRUE),
+  Likert1=sum(Likert1,na.rm=TRUE),
+  Likert54=sum(Likert54,na.rm=TRUE),
+  Likert12=sum(Likert12,na.rm=TRUE),
+  LikertN=sum(ifelse(is.na(Likert), 0, 1)),
+  NPSAvg=sum(NPS,na.rm=TRUE),
+  NPS9.10=sum(NPS9.10,na.rm=TRUE),
+  NPS7.8=sum(NPS7.8,na.rm=TRUE),
+  NPS0.6=sum(NPS0.6,na.rm=TRUE),
+  NPSN=sum(ifelse(is.na(NPS), 0, 1)),
+  workloadLow=sum(workloadLow,na.rm=TRUE),
+  workloadRight=sum(workloadRight, na.rm=TRUE),
+  workloadHigh=sum(workloadHigh, na.rm=TRUE),
+  workloadTooHigh=sum(workloadTooHigh, na.rm=TRUE),
+  workloadN=sum(ifelse(is.na(workloadN), 0, 1)),
+  leaveEOY=sum(leaveEOY,na.rm=TRUE),
+  leave1.2=sum(leave1.2,na.rm=TRUE),
+  leave3.4=sum(leave3.4,na.rm=TRUE),
+  leave5.6=sum(leave5.6,na.rm=TRUE),
+  leave.Many=sum(leave.Many,na.rm=TRUE),
+  leaveN=sum(ifelse(is.na(expectedYrsN), 0, 1)),
+  reasonCareer=sum(reasonCareer,na.rm=TRUE),
+  reasonLearn=sum(reasonLearn,na.rm=TRUE),
+  reasonLeader=sum(reasonLeader,na.rm=TRUE),
+  reasonLifestyle=sum(reasonLifestyle,na.rm=TRUE),
+  reasonMoving=sum(reasonMoving,na.rm=TRUE),
+  reasonAdvance=sum(reasonAdvance,na.rm=TRUE),
+  reasonSalary=sum(reasonSalary,na.rm=TRUE),
+  reasonStaffCulture=sum(reasonStaffCulture,na.rm=TRUE),
+  reasonStudentCulture=sum(reasonStudentCulture,na.rm=TRUE),
+  reasonOther=sum(reasonOther,na.rm=TRUE),
+  reasonN=sum(ifelse(is.na(whyLeaveN), 0, 1)),
+  desiredChangeAvg=sum(desiredChange, na.rm=TRUE),
+  desiredChangeN=sum(ifelse(is.na(desiredChange), 0, 1))
+  )
+```
+
+

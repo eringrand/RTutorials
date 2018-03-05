@@ -21,7 +21,7 @@ mpg <- mpg
 ![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/MagrittePipe.jpg?raw=true)
 
 ## Introduction to R's Not-a-Pipe: %>%
-I was once told me that `%>%` is called not-a-pipe since *pipe* was already taken for another symbol (|), but considering it is from the magrittr package, I believe the real story is based on Magritte's famous image.
+I was once told me that `%>%` is called not-a-pipe since *pipe* was already taken for another symbol (|).
 
 ## What is the pipe?
 <div align="left">![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/magrittr.png?raw=true)
@@ -32,7 +32,7 @@ I was once told me that `%>%` is called not-a-pipe since *pipe* was already take
 
 ***
 
-For example, we've seen that to filter a data frame you use
+For example, to filter a data frame and add a new column you would...
 ```{r}
 x <- filter(mpg, hwy >= 31)
 newx <- mutate(x, hwy.kpl = hwy * 0.4251)
@@ -52,23 +52,26 @@ Notice how the the data frame is always the first argument to these functions.
 > - A surprsing number of other functions in R are NOT desgined with data frist, so you have to do some work to use them in a pipe:
   > - `lm(y ~ x, data=data)` does not have the data as the first argument
 
+
 # Examples
 
-***
+---
 
-This makes combining output from various different functions much easier to write and read.
+The pipe makes combining output from various different functions much easier to write and read.
 
 ```{r}
 #Option A:
-mutate(
-  filter(iris, Sepal.Width > 4), 
-  total_width = Sepal.Width + Petal.Width)
+mutate( 
+      filter(iris, Sepal.Width > 4), 
+    total_width = Sepal.Width + Petal.Width
+  )
 ```
-***
+
+---
 
 This code computes the same output as before, but is much easier to read. 
 
-Rember, code should be written to be understood by future you. Make future you happy!
+Remember, code should be written to be understood by **future you**. Make future you happy!
 
 ```{r}
 #Option B:
@@ -81,59 +84,93 @@ iris %>%
 ![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/dancing_penguin.gif?raw=true)
 </div>
 
-## Difference bettween piping and not piping. {data-transition="none-out"}
+
+## Story Time 
+
+The story
+```
+Little bunny Foo Foo
+Went hopping through the forest
+Scooping up the field mice
+And bopping them on the head
+```
+![](https://s-media-cache-ak0.pinimg.com/originals/dc/07/02/dc0702ddc3a67dcb60c00fb83da8d436.jpg)
+
+
+## Story Time 
+
+The story
 
 ```
-bop_on(
-  scoop_up(
-    hop_through(foo_foo, forest),
-      field_mouse
-    ),
-  head
-  )
+Little bunny Foo Foo
+Went hopping through the forest
+Scooping up the field mice
+And bopping them on the head
+```
+
+Could look like this in code. Where each step Foo Foo takes is a new function.
+
+```{r, eval=F}
+foo_foo <- little_bunny()
+foo_foo_1 <- hop(foo_foo, through = forest)
+foo_foo_2 <- scoop(foo_foo_1, up = field_mice)
+foo_foo_3 <- bop(foo_foo_2, on = head)
+```
+
+## Story Time  {data-transition="none-out"}
+
+```{r, eval=F}
+bop(
+  scoop(
+    hop(foo_foo, through = forest),
+    up = field_mice
+  ), 
+  on = head
 )
 ```
-is much more confusing then...
+is much more confusing than...
 
+## Story Time {data-transition="none-in"}
 
-## Difference bettween piping and not piping. {data-transition="none-in"}
-
-```
-bop_on(
-  scoop_up(
-    hop_through(foo_foo, forest),
-      field_mouse
-    ),
-  head
-  )
+```{r, eval=F}
+bop(
+  scoop(
+    hop(foo_foo, through = forest),
+    up = field_mice
+  ), 
+  on = head
 )
 ```
-is much more confusing then...
+is much more confusing than...
 
-```
+```{r, eval=F}
 foo_foo %>%
-  hop_through(forest) %>%
-  scoop_up(field_mouse) %>%
-  bop_on(head)
-)
-```
-## Difference bettween piping and not piping.
-You tell me, what is happening in this code?!
-
-```{r, eval=F, echo=T}
-hourly_delay <- filter(
-  summarise(
-    group_by(
-      filter(flights, !is.na(dep_delay)), 
-      date, hour), 
-    delay = mean(dep_delay), 
-    n = n()), 
-  n > 10
-)
+  hop(through = forest) %>%
+  scoop(up = field_mouse) %>%
+  bop(on = head)
 ```
 
-*** 
-Is this easier to understand?
+## Your Turn {data-transition="none-out"}
+What quick story can you tell using the pipe?
+
+
+## Your Turn {data-transition="none-in"}
+What quick story can you tell using the pipe?
+```
+humpty_dumpty %>%
+  sat(on = wall) %>%
+  fall(type = great) %>%
+  left_join(kings_horses) %>%
+  left_join(kings_men) %>%
+  put_together(FALSE)
+```
+---
+
+![](https://c.tribune.com.pk/2015/06/HumptyDumptyWEB.jpg)
+
+---
+
+## Example Pipe Group
 ```{r, eval=F, echo=T}
 hourly_delay <- flights %>% 
   filter(!is.na(dep_delay)) %>%
@@ -152,8 +189,8 @@ hourly_delay <- flights %>%
 
 ## Rules for Piping {.build}
 1. The pipe chain should be larger than 1
-1. A pipe group should be desgined to complete a specific task
-1. It is okay to change objects along the pipe (i.e pass in a dataframe and output a plot)
+1. A pipe group should be designed to complete a specific task
+1. It is okay to change objects along the pipe (i.e pass in a data frame and output a plot)
 1. Be data source aware
 1. Pipe operations should be "atomic"
 1. Keep your pipes "short"
@@ -161,7 +198,7 @@ hourly_delay <- flights %>%
 ***
 
 ### Pipe Chain should be larger than 1
-Do no do this
+Do not do this
 ```{r, eval=F}
 df %>% str()
 ```
@@ -176,11 +213,13 @@ is so much more compact and easier to read.
 ### A pipe group should be designed to complete a specific task
 Keeping a pipe group to one task will help with further rules (specifically length).
 
+![](http://weknowmemes.com/generator/uploads/generated/g1334758962270838552.jpg)
+
 ***
 
-### It is okay to change object along the pipe
+### It is okay to change objects along the pipe
 
-Most commonly, you might go from a dataframe to a plot, or a list to a dataframe.
+Most commonly, you might go from a data frame to a plot, or a list to a data frame.
 
 ```{r, fig.height=2, fig.width=4}
 iris %>% 
@@ -200,3 +239,14 @@ iris %>%
 ### Keep your pipes "short"
 
 All this to say, keep your pipes long enough to not add more confusion, and short enough to avoid breaking things. You'll find that you'll quickly discover what the right "length" for you is.
+
+
+# Discussion Questions
+
+---
+
+## Discussion Questions
+
+- When should you use the pipe vs not?
+- Beside ease of writing/reading what is useful about using the pipe structure?
+- What should you never do in a pipe group?

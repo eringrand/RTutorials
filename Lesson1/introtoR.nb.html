@@ -229,6 +229,9 @@ $(document).ready(function () {
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucHJpbnQoIFwiSGVsbG8gd29ybGQhXCIgKVxuYGBgIn0= -->
 <pre class="r"><code>print( &quot;Hello world!&quot; )</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiSGVsbG8gd29ybGQhXCJcbiJ9 -->
+<pre><code>[1] &quot;Hello world!&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -238,10 +241,12 @@ $(document).ready(function () {
 <p>Why does this code not work?</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlfdmFyaWFibGUgPCAtIDEwXG5teV92YXJpYWJsZVxuYGBgIn0= -->
-<pre class="r"><code>my_variable &lt; - 10
-my_variable</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXlfdmFyaWFibGUgPCAtIDEwXG5gYGAifQ== -->
+<pre class="r"><code>my_variable &lt; - 10</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IG9iamVjdCAnbXlfdmFyaWFibGUnIG5vdCBmb3VuZFxuIn0= -->
+<pre><code>Error: object 'my_variable' not found</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Look carefully! (This may seem like an exercise in pointlessness, but training your brain to notice even the tiniest difference will pay off when programming.)</p>
@@ -250,10 +255,9 @@ my_variable</code></pre>
 <h1>Comments</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBUaGlzIGlzIGEgY29tbWVudFxuIyMjIyBUaGlzIGlzIGFsc28gYSBjb21tZW50XG5cbiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjI1xuIyBJIHNvbWV0aW1lcyB3cml0ZSBjb21tZW50cyBsaWtlIHRoaXMgdG8gc2VwZXJhdGUgbXkgY29kZSAjXG4jIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBUaGlzIGlzIGEgY29tbWVudFxuIyMjIyBUaGlzIGlzIGFsc28gYSBjb21tZW50XG4jIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyNcbiMgSSBzb21ldGltZXMgd3JpdGUgY29tbWVudHMgbGlrZSB0aGlzIHRvIHNlcGVyYXRlIG15IGNvZGUgI1xuIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjXG5gYGAifQ== -->
 <pre class="r"><code># This is a comment
 #### This is also a comment
-
 ############################################################
 # I sometimes write comments like this to seperate my code #
 ############################################################</code></pre>
@@ -307,12 +311,30 @@ my_variable</code></pre>
 <h4>Numbers: Double and Integers</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMS41XG50eXBlb2YoMS41KVxuYXMuaW50ZWdlcig0MilcbnR5cGVvZihhcy5pbnRlZ2VyKDQyKSlcbmBgYCJ9 -->
-<pre class="r"><code>1.5
-typeof(1.5)
-as.integer(42)
-typeof(as.integer(42))</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMS41XG5gYGAifQ== -->
+<pre class="r"><code>1.5</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEuNVxuIn0= -->
+<pre><code>[1] 1.5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHlwZW9mKDEuNSlcbmBgYCJ9 -->
+<pre class="r"><code>typeof(1.5)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiZG91YmxlXCJcbiJ9 -->
+<pre><code>[1] &quot;double&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYXMuaW50ZWdlcig0MilcbmBgYCJ9 -->
+<pre class="r"><code>as.integer(42)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDQyXG4ifQ== -->
+<pre><code>[1] 42</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHlwZW9mKGFzLmludGVnZXIoNDIpKVxuYGBgIn0= -->
+<pre class="r"><code>typeof(as.integer(42))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiaW50ZWdlclwiXG4ifQ== -->
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -325,15 +347,48 @@ typeof(as.integer(42))</code></pre>
 </ul>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRkFMU0VcbkZcblRSVUVcblRcbjUgPiA0M1xuNDIgPD0gMTggJiAxOCA+IDEwXG40MiA8PSAxOCB8IDE4ID4gMTBcbmBgYCJ9 -->
-<pre class="r"><code>FALSE
-F
-TRUE
-T
-5 &gt; 43
-42 &lt;= 18 &amp; 18 &gt; 10
-42 &lt;= 18 | 18 &gt; 10</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRkFMU0VcbmBgYCJ9 -->
+<pre class="r"><code>FALSE</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRlxuYGBgIn0= -->
+<pre class="r"><code>F</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVFJVRVxuYGBgIn0= -->
+<pre class="r"><code>TRUE</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVFxuYGBgIn0= -->
+<pre class="r"><code>T</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuNSA+IDQzXG5gYGAifQ== -->
+<pre class="r"><code>5 &gt; 43</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuNDIgPD0gMTggJiAxOCA+IDEwXG5gYGAifQ== -->
+<pre class="r"><code>42 &lt;= 18 &amp; 18 &gt; 10</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
+<pre><code>[1] FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuNDIgPD0gMTggfCAxOCA+IDEwXG5gYGAifQ== -->
+<pre class="r"><code>42 &lt;= 18 | 18 &gt; 10</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFRSVUVcbiJ9 -->
+<pre><code>[1] TRUE</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -342,11 +397,24 @@ T
 <p>designated as such by the quotes</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXCJNeSBuYW1lIGluIEVyaW5cIlxuXCI1MiVcIlxudHlwZW9mKFwiNTIlXCIpXG5gYGAifQ== -->
-<pre class="r"><code>&quot;My name in Erin&quot;
-&quot;52%&quot;
-typeof(&quot;52%&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXCJNeSBuYW1lIGluIEVyaW5cIlxuYGBgIn0= -->
+<pre class="r"><code>&quot;My name in Erin&quot;</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiTXkgbmFtZSBpbiBFcmluXCJcbiJ9 -->
+<pre><code>[1] &quot;My name in Erin&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXCI1MiVcIlxuYGBgIn0= -->
+<pre class="r"><code>&quot;52%&quot;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiNTIlXCJcbiJ9 -->
+<pre><code>[1] &quot;52%&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHlwZW9mKFwiNTIlXCIpXG5gYGAifQ== -->
+<pre class="r"><code>typeof(&quot;52%&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiY2hhcmFjdGVyXCJcbiJ9 -->
+<pre><code>[1] &quot;character&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -358,6 +426,10 @@ typeof(&quot;52%&quot;)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZmFjdG9yKGMoXCJCaWdcIiwgXCJTZW1pLUJpZ1wiLCBcIlNlbWktU21hbGxcIiwgXCJTbWFsbFwiLCBcIlRpbnlcIikpXG5gYGAifQ== -->
 <pre class="r"><code>factor(c(&quot;Big&quot;, &quot;Semi-Big&quot;, &quot;Semi-Small&quot;, &quot;Small&quot;, &quot;Tiny&quot;))</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEJpZyAgICAgICAgU2VtaS1CaWcgICBTZW1pLVNtYWxsIFNtYWxsICAgICAgVGlueSAgICAgIFxuTGV2ZWxzOiBCaWcgU2VtaS1CaWcgU2VtaS1TbWFsbCBTbWFsbCBUaW55XG4ifQ== -->
+<pre><code>[1] Big        Semi-Big   Semi-Small Small      Tiny      
+Levels: Big Semi-Big Semi-Small Small Tiny</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>We’ll talk more about factors at a later time. For now, <strong>TRY NOT TO USE THEM UNLESS NEEDED.</strong> They can be super confusing and annoying.</p>
@@ -455,11 +527,25 @@ typeof(&quot;52%&quot;)</code></pre>
 <h4>Vectors</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYygxLCAyLCAzLCA0LCA1KVxuc2VxKDAsIDQsIC4yNSlcbjE6NVxuYGBgIn0= -->
-<pre class="r"><code>c(1, 2, 3, 4, 5)
-seq(0, 4, .25)
-1:5</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYygxLCAyLCAzLCA0LCA1KVxuYGBgIn0= -->
+<pre class="r"><code>c(1, 2, 3, 4, 5)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDQgNVxuIn0= -->
+<pre><code>[1] 1 2 3 4 5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2VxKDAsIDQsIC4yNSlcbmBgYCJ9 -->
+<pre class="r"><code>seq(0, 4, .25)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAwLjAwIDAuMjUgMC41MCAwLjc1IDEuMDAgMS4yNSAxLjUwIDEuNzUgMi4wMCAyLjI1IDIuNTAgMi43NSAzLjAwIDMuMjUgMy41MCAzLjc1XG5bMTddIDQuMDBcbiJ9 -->
+<pre><code> [1] 0.00 0.25 0.50 0.75 1.00 1.25 1.50 1.75 2.00 2.25 2.50 2.75 3.00 3.25 3.50 3.75
+[17] 4.00</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMTo1XG5gYGAifQ== -->
+<pre class="r"><code>1:5</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDQgNVxuIn0= -->
+<pre><code>[1] 1 2 3 4 5</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -470,6 +556,9 @@ seq(0, 4, .25)
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYyhcIkhlbGxvXCIsIFwid29ybGRcIilcbmBgYCJ9 -->
 <pre class="r"><code>c(&quot;Hello&quot;, &quot;world&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiSGVsbG9cIiBcIndvcmxkXCJcbiJ9 -->
+<pre><code>[1] &quot;Hello&quot; &quot;world&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p><em>What are the data types of these vectors? Are they the same?</em> Can I combine data types in one vector?</p>
@@ -478,17 +567,28 @@ seq(0, 4, .25)
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYygxLCA0LCBGQUxTRSwgXCJFcmluXCIpXG5gYGAifQ== -->
 <pre class="r"><code>c(1, 4, FALSE, &quot;Erin&quot;)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiMVwiICAgICBcIjRcIiAgICAgXCJGQUxTRVwiIFwiRXJpblwiIFxuIn0= -->
+<pre><code>[1] &quot;1&quot;     &quot;4&quot;     &quot;FALSE&quot; &quot;Erin&quot; </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>No! Notice how R turned all of the values into CHARACTERS even if they were numbers.</p>
 <p><em>To get a particular value out of a vector, you can access it’s index.</em></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSA1OjEwXG54XG54WzJdXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSA1OjEwXG54XG5gYGAifQ== -->
 <pre class="r"><code>x &lt;- 5:10
-x
-x[2]</code></pre>
+x</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICA1ICA2ICA3ICA4ICA5IDEwXG4ifQ== -->
+<pre><code>[1]  5  6  7  8  9 10</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueFsyXVxuYGBgIn0= -->
+<pre class="r"><code>x[2]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDZcbiJ9 -->
+<pre><code>[1] 6</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -499,6 +599,13 @@ x[2]</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlzdCgxOjUsIDI6NClcbmBgYCJ9 -->
 <pre class="r"><code>list(1:5, 2:4)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiW1sxXV1cblsxXSAxIDIgMyA0IDVcblxuW1syXV1cblsxXSAyIDMgNFxuIn0= -->
+<pre><code>[[1]]
+[1] 1 2 3 4 5
+
+[[2]]
+[1] 2 3 4</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Notice that I’ve made a list of vectors! A list of lists (or vectors). When each of the vectors is the same length can be easily converted to a table, ie. a data frame!</p>
@@ -511,13 +618,38 @@ x[2]</code></pre>
 </ul>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBsaXN0KGMoMTo1KSwgYygyOjYpKVxueFxuZGF0YS5mcmFtZSh4KVxuI29yIGFzIGZyb20gdmVjdG9ycywgdGhlIG1vc3QgY29tbW9uIHdheSB0byB1c2UgZGF0YSBmcmFtZXNcbmRhdGEuZnJhbWUoeCA9IGMoMTozKSwgeSA9IGMoMzo1KSlcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBsaXN0KGMoMTo1KSwgYygyOjYpKVxueFxuYGBgIn0= -->
 <pre class="r"><code>x &lt;- list(c(1:5), c(2:6))
-x
-data.frame(x)
-#or as from vectors, the most common way to use data frames
+x</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiW1sxXV1cblsxXSAxIDIgMyA0IDVcblxuW1syXV1cblsxXSAyIDMgNCA1IDZcbiJ9 -->
+<pre><code>[[1]]
+[1] 1 2 3 4 5
+
+[[2]]
+[1] 2 3 4 5 6</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YS5mcmFtZSh4KVxuYGBgIn0= -->
+<pre class="r"><code>data.frame(x)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFTdzZDTUJBZENtZ2cwWkJ3RHB1QTBSTjRBbGRzSzZBU3NTVlFva3RQams1TGEwaWJ0SjE1TSsvTjUzd3E4cmlJQVlDQTczdEFmRFFEZ284SEFVVHFmd1A0cVU0QTJPQU5kWEQyZGJiQmJNekZWNDVneU5tekh0QklkUElNQmtWR0QzODdwMGVIRlBYaVJTMVJWU0lmMENkMDFjdVdEVmJkZ25IRkpLUFhIdm5vVFE1bExUclpDSTRra3BxZWwyU3ZkNEJrNUtxVGFsZmVSLzdZWlh0VndTd0ZUSHZlWWlsbVdhb20rUnF0MEdpdGFuNXJlRzJiYjltbGJvMnp4WkgxeExUckd5N3RLSWdPVkFySmJGNWNpdFlpZWppWWZqMlBSUWZXQVFBQSJ9 -->
+<div data-pagedtable>
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["X1.5"],"name":[1],"type":["int"],"align":["left"]},{"label":["X2.6"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"2"},{"1":"2","2":"3"},{"1":"3","2":"4"},{"1":"4","2":"5"},{"1":"5","2":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI29yIGFzIGZyb20gdmVjdG9ycywgdGhlIG1vc3QgY29tbW9uIHdheSB0byB1c2UgZGF0YSBmcmFtZXNcbmRhdGEuZnJhbWUoeCA9IGMoMTozKSwgeSA9IGMoMzo1KSlcbmBgYCJ9 -->
+<pre class="r"><code>#or as from vectors, the most common way to use data frames
 data.frame(x = c(1:3), y = c(3:5))</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFRUTZDTUJCY1d0QkFvaUhoSFRaUnYrQUxQSEd0Z0VyRWxrQ0pldlBsNkxhMEJ0dGsyOTNwem5TbngwTytTL0lFQUFoUUdnQ2htSVlFdHdCQ2lQWDVCS0NaYVFCWVlWQnpPZFYwaGhrbVJ1UUpSSUxmcXg2VDFKQitxalo1ZWUxeEp4L01VYlEyZVlOWjFOY3RHdDQ3WFFjbUpWZWNuVHZrWXpWNmxLVnNWUzBGa2tnMlRmcEhEam9QU0FlaEp5azN4WFVRdDgxMnIxK3c5c0dPRjh5K3dYNkxmcE44ckZaa3RSYVZ1TlNpY3NNMy9GUTF0bGlqWmVPWXRWMHRsTE9DYU0rVVZOejFKWVZzSEdMTXdmZ0ZoQ3RJa2NBQkFBQT0ifQ== -->
+<div data-pagedtable>
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["x"],"name":[1],"type":["int"],"align":["left"]},{"label":["y"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"3"},{"1":"2","2":"4"},{"1":"3","2":"5"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Normally you’ll be loading in your own data frame from a CSV or excel sheet, or forming your own from vectors or lists.</p>
@@ -529,17 +661,42 @@ data.frame(x = c(1:3), y = c(3:5))</code></pre>
 <p><em>Let’s look at a toy dataset to play with</em> We will assign the first few rows of the Iris data set to a toy data frame to play with</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBhc3NpZ24gdGhlIGZpcnN0IDYgcm93cyBvZiB0aGUgaXJpcyBkYXRhc2V0IGFzIGEgdG95IGRhdGFmcmFtZVxuZGYgPC0gaGVhZChpcmlzKVxuZGZcblxuIyBpbnNwZWN0IHRoZSBzdHJ1Y3R1cmUgb2YgdGhlIGRhdGEgZnJhbWVcbnN0cihkZilcblxuIyBjb21wdXRlIHN1bW1hcnkgc3RhdGlzdGljcyBmb3IgZWFjaCBjb2x1bW5cbnN1bW1hcnkoZGYpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBhc3NpZ24gdGhlIGZpcnN0IDYgcm93cyBvZiB0aGUgaXJpcyBkYXRhc2V0IGFzIGEgdG95IGRhdGFmcmFtZVxuZGYgPC0gaGVhZChpcmlzKVxuZGZcbmBgYCJ9 -->
 <pre class="r"><code># assign the first 6 rows of the iris dataset as a toy dataframe
 df &lt;- head(iris)
-df
-
-# inspect the structure of the data frame
-str(df)
-
-# compute summary statistics for each column
-summary(df)</code></pre>
+df</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NSwibnJvdyI6Nn0sInJkZiI6Ikg0c0lBQUFBQUFBQUJvVlN6VTZEUUJCZTJFSUwwdHEwOVRGSzRzKzlIRHg2TVBaZ3J5dmR0aHR4SWJDdEhuME5mU01UZlFEZnd4Z1RrK29zdTBzb05uR1NZWWFQK1diMm0rWHFmSGJpejN5RWtJMHd0cENOSVczWjhMQlFDM2t5UGlDRWg1QTQ0RDF3TnhvdFNvdUdUOUtlbzhHcnRMZG9vUEVSS2kwNlV0OHJYcUR4am82ZTVuYzBQOUR4OExRMHc1dDhxcjVWL0ZCMWt5L1ZwOEsvRzd3WDFmL2YrRzdPaWJ1U1Y0cmY2enVMY1JPNm9Va0JXUjhjRzdTZ0lpMklmdk0zTkM5WW5DWnByaEZ2dy9JbDR5d21qWFpPbkpEQ2RLdG1MRWdzZ0l2UXRsbk95UjAxNVk0R2d5bk5TQkplVUw0VUs0MGRLT3lhelNzb3VLVGlUNW5DNm1YdGFVWmpKb2ZzVFBieTlENDAwK1hDN0VkMUQ2NHF4RDhORWY2Y0NCSXVjcURzRWRKT004RlNEczFzODVmVnlWYmVBUHByTG9mUHgvRnF6Vy9IeDJkeVF1MmF1anE2dGR4Uk0xdm1aR1pmTG15QWNXcFdtcEFibXVpWEhxZ3NSWVpaenJnd1VnQXRRcEhDcWd3Q2wydVFVaHphL2dLcnhiUy9WQU1BQUE9PSJ9 -->
+<div data-pagedtable>
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fctr"],"align":["left"]}],"data":[{"1":"5.1","2":"3.5","3":"1.4","4":"0.2","5":"setosa","_rn_":"1"},{"1":"4.9","2":"3.0","3":"1.4","4":"0.2","5":"setosa","_rn_":"2"},{"1":"4.7","2":"3.2","3":"1.3","4":"0.2","5":"setosa","_rn_":"3"},{"1":"4.6","2":"3.1","3":"1.5","4":"0.2","5":"setosa","_rn_":"4"},{"1":"5.0","2":"3.6","3":"1.4","4":"0.2","5":"setosa","_rn_":"5"},{"1":"5.4","2":"3.9","3":"1.7","4":"0.4","5":"setosa","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBpbnNwZWN0IHRoZSBzdHJ1Y3R1cmUgb2YgdGhlIGRhdGEgZnJhbWVcbnN0cihkZilcbmBgYCJ9 -->
+<pre class="r"><code># inspect the structure of the data frame
+str(df)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJ2RhdGEuZnJhbWUnOlx0NiBvYnMuIG9mICA1IHZhcmlhYmxlczpcbiAkIFNlcGFsLkxlbmd0aDogbnVtICA1LjEgNC45IDQuNyA0LjYgNSA1LjRcbiAkIFNlcGFsLldpZHRoIDogbnVtICAzLjUgMyAzLjIgMy4xIDMuNiAzLjlcbiAkIFBldGFsLkxlbmd0aDogbnVtICAxLjQgMS40IDEuMyAxLjUgMS40IDEuN1xuICQgUGV0YWwuV2lkdGggOiBudW0gIDAuMiAwLjIgMC4yIDAuMiAwLjIgMC40XG4gJCBTcGVjaWVzICAgICA6IEZhY3RvciB3LyAzIGxldmVscyBcInNldG9zYVwiLFwidmVyc2ljb2xvclwiLC4uOiAxIDEgMSAxIDEgMVxuIn0= -->
+<pre><code>'data.frame':   6 obs. of  5 variables:
+ $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4
+ $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9
+ $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7
+ $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4
+ $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShkZilcbmBgYCJ9 -->
+<pre class="r"><code>summary(df)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBTZXBhbC5MZW5ndGggICAgU2VwYWwuV2lkdGggICAgIFBldGFsLkxlbmd0aCAgICBQZXRhbC5XaWR0aCAgICAgICAgICAgU3BlY2llcyBcbiBNaW4uICAgOjQuNjAwICAgTWluLiAgIDozLjAwMCAgIE1pbi4gICA6MS4zMDAgICBNaW4uICAgOjAuMjAwMCAgIHNldG9zYSAgICA6NiAgXG4gMXN0IFF1Ljo0Ljc1MCAgIDFzdCBRdS46My4xMjUgICAxc3QgUXUuOjEuNDAwICAgMXN0IFF1LjowLjIwMDAgICB2ZXJzaWNvbG9yOjAgIFxuIE1lZGlhbiA6NC45NTAgICBNZWRpYW4gOjMuMzUwICAgTWVkaWFuIDoxLjQwMCAgIE1lZGlhbiA6MC4yMDAwICAgdmlyZ2luaWNhIDowICBcbiBNZWFuICAgOjQuOTUwICAgTWVhbiAgIDozLjM4MyAgIE1lYW4gICA6MS40NTAgICBNZWFuICAgOjAuMjMzMyAgICAgICAgICAgICAgICAgXG4gM3JkIFF1Ljo1LjA3NSAgIDNyZCBRdS46My41NzUgICAzcmQgUXUuOjEuNDc1ICAgM3JkIFF1LjowLjIwMDAgICAgICAgICAgICAgICAgIFxuIE1heC4gICA6NS40MDAgICBNYXguICAgOjMuOTAwICAgTWF4LiAgIDoxLjcwMCAgIE1heC4gICA6MC40MDAwICAgICAgICAgICAgICAgICBcbiJ9 -->
+<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width           Species 
+ Min.   :4.600   Min.   :3.000   Min.   :1.300   Min.   :0.2000   setosa    :6  
+ 1st Qu.:4.750   1st Qu.:3.125   1st Qu.:1.400   1st Qu.:0.2000   versicolor:0  
+ Median :4.950   Median :3.350   Median :1.400   Median :0.2000   virginica :0  
+ Mean   :4.950   Mean   :3.383   Mean   :1.450   Mean   :0.2333                 
+ 3rd Qu.:5.075   3rd Qu.:3.575   3rd Qu.:1.475   3rd Qu.:0.2000                 
+ Max.   :5.400   Max.   :3.900   Max.   :1.700   Max.   :0.4000                 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>You can also use mean(), max(), min()…etc to look at the statistic of a particular list.</p>
@@ -548,6 +705,9 @@ summary(df)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbihkZiRQZXRhbC5XaWR0aClcbmBgYCJ9 -->
 <pre class="r"><code>mean(df$Petal.Width)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMjMzMzMzM1xuIn0= -->
+<pre><code>[1] 0.2333333</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <div id="indexing-data-frames-look-at-a-set-of-particular-rows-or-columns" class="section level4">
@@ -558,18 +718,41 @@ summary(df)</code></pre>
 <pre class="r"><code># look at the fifth row
 df[5, ]</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NSwibnJvdyI6MX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJtMVJ5MDdETUJEY3ZGbzFwRlVsK0kxR2dnTlhPSERrZ09pQlhrM2l0QmJHamh3MzhDdndSMGp3T3h3TDZ5UWIydENWTnRrZGpYYzg2L3ViMVVXOGlnSEFoeUR3d0Erd0RIMzhlQkRDeFAxZkFZSlRMQ0xNbVFPdXo0Q2k3Wk5QRjEvVVgzMFhUZlQ5eDV1TGQ1d3piUVkzZVNBeWtyem1zc0pxamhrUVduR3JLOVoxY2MxTkpUSXR0ZW1RU1MzTVdpaVJzY0c0S0pPc29tbTlSc0V5aTJjQmRrTzZZcytjNkZFSEprdGVNcG5lY3JXMm13NDdhYkVIa2ZkUWNzZnRQMXFMN2RQR3k1Sm53b2tjS0UrTWZrbEpuWllUdGFUZ1oyQWd6cGxsYVdHUWZzVEVXSmRXYUlXRGZIcXQvY09lR1FEenJYTEMrU0xiYk5YVDR2elNLZnc5RDB5UDFOM05Rcm9aN1dxRTdvWGl0RTdKSHJuc21oazZiQXltcFJIS2toVkVxOVJxWEJNaCtMQ0VOT1pnOXd0eHJnT0NuQUlBQUE9PSJ9 -->
+<div data-pagedtable>
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fctr"],"align":["left"]}],"data":[{"1":"5","2":"3.6","3":"1.4","4":"0.2","5":"setosa","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB0aHJlZSBkaWZmZXJlbnQgd2F5cyB0byBsb29rIGF0IHRoZSBzZWNvbmQgY29sdW1uXG4jIGJ5IGluZGV4XG5kZlsgLCAyXVxuZGYkU2VwYWwuV2lkdGhcbmRmWzJdXG5cblxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyB0aHJlZSBkaWZmZXJlbnQgd2F5cyB0byBsb29rIGF0IHRoZSBzZWNvbmQgY29sdW1uXG4jIGJ5IGluZGV4XG5kZlsgLCAyXVxuYGBgIn0= -->
 <pre class="r"><code># three different ways to look at the second column
 # by index
-df[ , 2]
-df$Sepal.Width
-df[2]
-</code></pre>
+df[ , 2]</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMuNSAzLjAgMy4yIDMuMSAzLjYgMy45XG4ifQ== -->
+<pre><code>[1] 3.5 3.0 3.2 3.1 3.6 3.9</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGYkU2VwYWwuV2lkdGhcbmBgYCJ9 -->
+<pre class="r"><code>df$Sepal.Width</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMuNSAzLjAgMy4yIDMuMSAzLjYgMy45XG4ifQ== -->
+<pre><code>[1] 3.5 3.0 3.2 3.1 3.6 3.9</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGZbMl1cbmBgYCJ9 -->
+<pre class="r"><code>df[2]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MSwibnJvdyI6Nn0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVFRVzdDTUJCY095UWxnUUlTNzhBU2NPQ2FRMS9RSHNyVkpDNUVkZTBvTVdxUGZLTjlVL3NsMnJWalY4Z3JPYnNlZVdabjh2aXczeFQ3QWdBb0pBa0JtdUE0b3ZnaE1JTGM5ZytBWk9rQWdCbWVySnlDcTNMc2UvNXA2NnNjZjl2NkthZSt6N2V1SXNGVThUZlI0N0M0QVNkUG91V1NQVGUxT1VYdjgwNi9zOEM1dDA0dnc5NHNGcTRrNzJQaG91YUdzNWNPK1hpN1JwUTczWnBHS3lSUkd6R055S1NMZ01WWldTZjFxanFkMWV0cXZiTWIvTDhoM2g0WnJQM1BaTmhKZjcxVzZyVXlvWTZORXNHODVBY2gvV1dHa1YxaTFuYU5NaUVLb2owejJ2RHdycWkwRElnTEI5Yy9PUjdsZHRFQkFBQT0ifQ== -->
+<div data-pagedtable>
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Sepal.Width"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"3.5","_rn_":"1"},{"1":"3.0","_rn_":"2"},{"1":"3.2","_rn_":"3"},{"1":"3.1","_rn_":"4"},{"1":"3.6","_rn_":"5"},{"1":"3.9","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -577,17 +760,36 @@ df[2]
 <h4>We can even filter the dataframe to only look at particular values</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBmaW5kIHJvd3Mgd2l0aCBTZXBhbC5MZW5ndGggYXQgbGVhc3QgNVxuZGYkU2VwYWwuTGVuZ3RoID49IDVcblxuIyBzZWxlY3QgYWxsIHJvd3Mgd2l0aCBTZXBhbC5MZW5ndGggYXQgbGVhc3QgNVxuZGZbZGYkU2VwYWwuTGVuZ3RoID49IDUsIF1cblxuIyBuaWNlciBzeW50YXggZm9yIHRoZSBzYW1lIHRoaW5nXG4jIG5vdGU6IHRoZSBzZWNvbmQgZW50cnkgb2Ygc3Vic2V0IGlzIGEgbG9naWNhbCB2ZWN0b3JcbnN1YnNldChkZiwgU2VwYWwuTGVuZ3RoID49IDUpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBmaW5kIHJvd3Mgd2l0aCBTZXBhbC5MZW5ndGggYXQgbGVhc3QgNVxuZGYkU2VwYWwuTGVuZ3RoID49IDVcbmBgYCJ9 -->
 <pre class="r"><code># find rows with Sepal.Length at least 5
-df$Sepal.Length &gt;= 5
-
-# select all rows with Sepal.Length at least 5
-df[df$Sepal.Length &gt;= 5, ]
-
-# nicer syntax for the same thing
+df$Sepal.Length &gt;= 5</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdICBUUlVFIEZBTFNFIEZBTFNFIEZBTFNFICBUUlVFICBUUlVFXG4ifQ== -->
+<pre><code>[1]  TRUE FALSE FALSE FALSE  TRUE  TRUE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBzZWxlY3QgYWxsIHJvd3Mgd2l0aCBTZXBhbC5MZW5ndGggYXQgbGVhc3QgNVxuZGZbZGYkU2VwYWwuTGVuZ3RoID49IDUsIF1cbmBgYCJ9 -->
+<pre class="r"><code># select all rows with Sepal.Length at least 5
+df[df$Sepal.Length &gt;= 5, ]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NSwibnJvdyI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUJtMVJ2VTdETUJCMjQ2WlZRMW9xVVI2amtZQ0ZqUXlNRElnT2REV0oyMW9ZTzNMY3dLdkFHeUhCQS9BaUxKVUtaOGVPMHNCSjV6dC85MzkzZDcwOGo1WVJRaWhBR1BkUWdFSHRCL0QwVUIrTmpIeEJDSitBRWdKUGdIRTZXMWxLWjhoU2V2cHE2SzJ4eHc2UFB3eDlwc2NYbHJ6OTZydU9iK1N1WTMrdjh6WHl5K2ZIWTJPM3pUVjgwT3lBMDRyeUVyU3A5WFJvU2JVc2lmdEZGVlVseXlTWHlpR2ppcWsxRXl3am5YUmh4a25wc3pVMVZpVFRFSXZRdnVzdXlCUDE3cUVENHdVdENFOXVxRmpyamNPT2F1eWU1UTBVMzFMOXg2M0cybTdEUlVFelpvb2NWQjRwK1p6NDZ1MGxtYU1OYW1mODB4a2t5b2tteVVwQjJEL0RER1dobVJTUU1QRFhid2YzVkFlWWJvVnBJSjlubTYxNG5KOWRtZ3F0VTQyZHhDMDlyR3YyZldkK1p3UFlBaFBVcjVXVEI4cmRad0tUMmtHVFFqR2gvU2lBbG9tV3NDNlB3SUU5WW9kRCsxL2VUcEdXN0FJQUFBPT0ifQ== -->
+<div data-pagedtable>
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fctr"],"align":["left"]}],"data":[{"1":"5.1","2":"3.5","3":"1.4","4":"0.2","5":"setosa","_rn_":"1"},{"1":"5.0","2":"3.6","3":"1.4","4":"0.2","5":"setosa","_rn_":"5"},{"1":"5.4","2":"3.9","3":"1.7","4":"0.4","5":"setosa","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBuaWNlciBzeW50YXggZm9yIHRoZSBzYW1lIHRoaW5nXG4jIG5vdGU6IHRoZSBzZWNvbmQgZW50cnkgb2Ygc3Vic2V0IGlzIGEgbG9naWNhbCB2ZWN0b3JcbnN1YnNldChkZiwgU2VwYWwuTGVuZ3RoID49IDUpXG5gYGAifQ== -->
+<pre class="r"><code># nicer syntax for the same thing
 # note: the second entry of subset is a logical vector
 subset(df, Sepal.Length &gt;= 5)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NSwibnJvdyI6M30sInJkZiI6Ikg0c0lBQUFBQUFBQUJtMVJ2VTdETUJCMjQ2WlZRMW9xVVI2amtZQ0ZqUXlNRElnT2REV0oyMW9ZTzNMY3dLdkFHeUhCQS9BaUxKVUtaOGVPMHNCSjV6dC85MzkzZDcwOGo1WVJRaWhBR1BkUWdFSHRCL0QwVUIrTmpIeEJDSitBRWdKUGdIRTZXMWxLWjhoU2V2cHE2SzJ4eHc2UFB3eDlwc2NYbHJ6OTZydU9iK1N1WTMrdjh6WHl5K2ZIWTJPM3pUVjgwT3lBMDRyeUVyU3A5WFJvU2JVc2lmdEZGVlVseXlTWHlpR2ppcWsxRXl3am5YUmh4a25wc3pVMVZpVFRFSXZRdnVzdXlCUDE3cUVENHdVdENFOXVxRmpyamNPT2F1eWU1UTBVMzFMOXg2M0cybTdEUlVFelpvb2NWQjRwK1p6NDZ1MGxtYU1OYW1mODB4a2t5b2tteVVwQjJEL0RER1dobVJTUU1QRFhid2YzVkFlWWJvVnBJSjlubTYxNG5KOWRtZ3F0VTQyZHhDMDlyR3YyZldkK1p3UFlBaFBVcjVXVEI4cmRad0tUMmtHVFFqR2gvU2lBbG9tV3NDNlB3SUU5WW9kRCsxL2VUcEdXN0FJQUFBPT0ifQ== -->
+<div data-pagedtable>
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fctr"],"align":["left"]}],"data":[{"1":"5.1","2":"3.5","3":"1.4","4":"0.2","5":"setosa","_rn_":"1"},{"1":"5.0","2":"3.6","3":"1.4","4":"0.2","5":"setosa","_rn_":"5"},{"1":"5.4","2":"3.9","3":"1.7","4":"0.4","5":"setosa","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -599,6 +801,13 @@ subset(df, Sepal.Length &gt;= 5)</code></pre>
 <pre class="r"><code># filter ANDs conditions when given multiple arguments
 filter(df, Sepal.Length &gt;= 5, Petal.Length &lt;= 1.4)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NSwibnJvdyI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUJtMlJ3VTdETUF5R3ZYYmQxRkttU2V3MVZnbHVuTmlCSXdmRUR1eWFkZGtXRVpJcXpRYXZBbStFQksvRGNlQTBjYlVWTEtWeFB2M0piN3NQdDR1cmJKRUJRQVJ4M0lNb3hyUWY0YWNIZlVqZC9nb1FYMkNTNEJvNTRXeXlibUkyQVFyUGMzK1k1Wjh1dm9qZmZIczk3UzMvZUhQeFRqdjZuRGVGT1BObW5SUXlrSHpQWlkzWkdGZE10T1pXMXl5Y3NqMDN0U2kxMUNhUWRDL01SaWhSc3M1elNTbFpUYSsxSG10V1dyd0xjT2pLRlh2bUpFOEN6T2U4WXJLNDQycGp0NEdkZWZZb1ZpM0s3N245SS9Qc1dEYWNWN3dVenVURU9UWDZwU0QzNHdGRlhoai9kSnJJVnN5eVltM3d5aitOREhWbGhWYjRXRVIvOWZoeXozVEFlS2VjK1dwYWJuZnFhWHA1N1J4Q0JSQXFDdFcwZWVJOSsxUVp6V3VBRXhDSzAwZ2xXM0laRGlQc3NtbXlxSXhRbGxwQldoZFc0NmlJNE04bDBqUUhoMSszUFFhVHhBSUFBQT09In0= -->
+<div data-pagedtable>
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Sepal.Length"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Sepal.Width"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Petal.Length"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Petal.Width"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Species"],"name":[5],"type":["fctr"],"align":["left"]}],"data":[{"1":"5.1","2":"3.5","3":"1.4","4":"0.2","5":"setosa"},{"1":"5.0","2":"3.6","3":"1.4","4":"0.2","5":"setosa"}],"options":{"columns":{"min":{},"max":[10],"total":[5]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -610,6 +819,10 @@ filter(df, Sepal.Length &gt;= 5, Petal.Length &lt;= 1.4)</code></pre>
 <pre class="r"><code># get a list of all unique species
 unique(iris$Species)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIHNldG9zYSAgICAgdmVyc2ljb2xvciB2aXJnaW5pY2EgXG5MZXZlbHM6IHNldG9zYSB2ZXJzaWNvbG9yIHZpcmdpbmljYVxuIn0= -->
+<pre><code>[1] setosa     versicolor virginica 
+Levels: setosa versicolor virginica</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>If we just wanted to get the number of species, we could look at the length of this vector.</p>
@@ -618,6 +831,9 @@ unique(iris$Species)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGVuZ3RoKHVuaXF1ZShpcmlzJFNwZWNpZXMpKVxuYGBgIn0= -->
 <pre class="r"><code>length(unique(iris$Species))</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDNcbiJ9 -->
+<pre><code>[1] 3</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -628,6 +844,11 @@ unique(iris$Species)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUoaXJpcyRTcGVjaWVzKVxuYGBgIn0= -->
 <pre class="r"><code>table(iris$Species)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG4gICAgc2V0b3NhIHZlcnNpY29sb3IgIHZpcmdpbmljYSBcbiAgICAgICAgNTAgICAgICAgICA1MCAgICAgICAgIDUwIFxuIn0= -->
+<pre><code>
+    setosa versicolor  virginica 
+        50         50         50 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -638,6 +859,13 @@ unique(iris$Species)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUoaXJpcyRTcGVjaWVzLCBpcmlzJFNlcGFsLldpZHRoID4gMylcbmBgYCJ9 -->
 <pre class="r"><code>table(iris$Species, iris$Sepal.Width &gt; 3)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgICAgXG4gICAgICAgICAgICAgRkFMU0UgVFJVRVxuICBzZXRvc2EgICAgICAgICA4ICAgNDJcbiAgdmVyc2ljb2xvciAgICA0MiAgICA4XG4gIHZpcmdpbmljYSAgICAgMzMgICAxN1xuIn0= -->
+<pre><code>            
+             FALSE TRUE
+  setosa         8   42
+  versicolor    42    8
+  virginica     33   17</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -650,6 +878,9 @@ unique(iris$Species)</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuMToxMFxuYGBgIn0= -->
 <pre class="r"><code>1:10</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAgMSAgMiAgMyAgNCAgNSAgNiAgNyAgOCAgOSAxMFxuIn0= -->
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -665,6 +896,9 @@ unique(iris$Species)</code></pre>
 <pre class="r"><code>i &lt;- 42
 if(i &gt; 10){print(i)}</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDQyXG4ifQ== -->
+<pre><code>[1] 42</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -681,6 +915,9 @@ if(i &gt; 10){print(i)}</code></pre>
   print(&quot;nope&quot;) 
 }</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwibm9wZVwiXG4ifQ== -->
+<pre><code>[1] &quot;nope&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -693,16 +930,35 @@ if(i &gt; 10){print(i)}</code></pre>
 <pre class="r"><code>x &lt;- seq(1, 10, .5)
 ifelse(x == floor(x), 1, 0)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAxIDAgMSAwIDEgMCAxIDAgMSAwIDEgMCAxIDAgMSAwIDEgMCAxXG4ifQ== -->
+<pre><code> [1] 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGYgPC0gZGF0YS5mcmFtZSh4ID0gMTo1MCwgeT0gc2FtcGxlKDE6MTAwKVsxOjUwXSlcbmRmXG5kZiR5aW54IDwtIGlmZWxzZShkZiR5ICVpbiUgZGYkeCwgMSwgMClcbmRmXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGYgPC0gZGF0YS5mcmFtZSh4ID0gMTo1MCwgeT0gc2FtcGxlKDE6MTAwKVsxOjUwXSlcbmRmXG5gYGAifQ== -->
 <pre class="r"><code>df &lt;- data.frame(x = 1:50, y= sample(1:100)[1:50])
-df
-df$yinx &lt;- ifelse(df$y %in% df$x, 1, 0)
 df</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MiwibnJvdyI6NTB9LCJyZGYiOiJINHNJQUFBQUFBQUFCbDNTV1UvQ1FCUUY0T21VUmFvaWlodnVpaHRxcXpiR2FJd1BiakVtK3VDU1NFdzBGcWhLckZOU1N0UTNmemw2cHR5SnBDUWZ0TVBjNFo1YmJrN0x0bEUyR0dPYzZickd1STdMQk1lYnhoSXNJeisvR05QejBRYkcrc0dPdnV6Y1I3c2hDU2xJUXcvSVFubG9ML1JSWFJZR0lBZURNQVR5M0dFWWdWRVlnM0Vvd0FSTXdoUk13d3pNd2h6TXd3SVVZUkdXWUJsV1lCVktzQWJyc0FFbVdMQUpXN0JOT1ZTZVk5aWwzenlCUTNpR1I4cDBSalVaNmtubXZZWUx1S1djUmVwOUh3Nm9yenZLSmZ1cndSWGNRd1YyYUhZcHluWUVaZXBiWmppblBBWHE4UUV1YWE0bXpVQm1lNks1bFdJUExpbWNEN2RKQStmL1Q1TXV2bVBiTTRIL2Fha1NPUmYrdzZLWEhUKzM2amxOZGE1YU5HcE82Rmd2QWVweDE0NlZwUDFHV1BjRmluaWVwdGRkckFXeGhWeEx5RTVxWnZXdEpkNU5lNDlpYTUyT292YTBya2RJZjBmNW0veVh6a3JTV1NsWHZOYUZxNXIzbklycjBVMFdrYVBFVmlPb2kxQkZ3V3JUQ3YzUVVmdU1xdStwbFNnY2EvOEIzRWlTdGpnREFBQT0ifQ== -->
+<div data-pagedtable>
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["x"],"name":[1],"type":["int"],"align":["left"]},{"label":["y"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"66"},{"1":"2","2":"54"},{"1":"3","2":"26"},{"1":"4","2":"67"},{"1":"5","2":"61"},{"1":"6","2":"96"},{"1":"7","2":"93"},{"1":"8","2":"7"},{"1":"9","2":"69"},{"1":"10","2":"49"},{"1":"11","2":"9"},{"1":"12","2":"27"},{"1":"13","2":"5"},{"1":"14","2":"81"},{"1":"15","2":"73"},{"1":"16","2":"83"},{"1":"17","2":"11"},{"1":"18","2":"35"},{"1":"19","2":"24"},{"1":"20","2":"57"},{"1":"21","2":"59"},{"1":"22","2":"36"},{"1":"23","2":"84"},{"1":"24","2":"22"},{"1":"25","2":"37"},{"1":"26","2":"100"},{"1":"27","2":"77"},{"1":"28","2":"87"},{"1":"29","2":"98"},{"1":"30","2":"52"},{"1":"31","2":"4"},{"1":"32","2":"6"},{"1":"33","2":"30"},{"1":"34","2":"65"},{"1":"35","2":"88"},{"1":"36","2":"42"},{"1":"37","2":"40"},{"1":"38","2":"71"},{"1":"39","2":"39"},{"1":"40","2":"25"},{"1":"41","2":"50"},{"1":"42","2":"90"},{"1":"43","2":"76"},{"1":"44","2":"10"},{"1":"45","2":"45"},{"1":"46","2":"33"},{"1":"47","2":"44"},{"1":"48","2":"94"},{"1":"49","2":"23"},{"1":"50","2":"41"}],"options":{"columns":{"min":{},"max":[10],"total":[2]},"rows":{"min":[10],"max":[10],"total":[50]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGYkeWlueCA8LSBpZmVsc2UoZGYkeSAlaW4lIGRmJHgsIDEsIDApXG5kZlxuYGBgIn0= -->
+<pre class="r"><code>df$yinx &lt;- ifelse(df$y %in% df$x, 1, 0)
+df</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NTB9LCJyZGYiOiJINHNJQUFBQUFBQUFCcFhUYVV2RE1CZ0g4S3pkNGFhYjgzYmVPcStwcTFwRUZCSHhRZ1I5NFFFT1FiRTcxR0p0UjlmaDlzNlA3Q2VZL3JNK1FWZVV6c0p2UzlNK1NmNmh1VHpLcWJGY2pERW1NVmtPTUVsR015amhKOENDTE1yL2E0ekpmV2p3SjNGUW13OTVnZHNYaEJDRUlRSWR3QXY1b0ozUVJYVUo2SVlrOUVBdjhISDdZUUFHWVFpR0lRVWpNQXBqTUE0VE1BbFRNQTB6a0laWm1JTjVXSUJGeU1BU0xNTUtaRUdCVlZpRGRjb2g4aHpBSnMxNUNMdndBSGVVNlpocW9yUW1udmNDVHVHS2NxWnA3ZHV3USt1NnBseDhmVVU0aHh2SXd3YnRYWml5N1VPTzFzMHpuRkNlRkszeEZzNW9YN08wQnp6YlBlMWJodmFZdjl0eTdYMTRlMzYvdk8rSis3LysvY2J4ZTk5dnZuYXYvODdYYnM1MjUvSFAwWEtnUXFiMldxb3c5eURJMzZlTUduVnFCT3U2V2ZPVVJtM3JUUkhsL051VjN0MEpWTzhjQlVPcmlEbEVaNnlvT1pyeWFLTWVkdzFQU2NRcU83cGxva2ppcHpMa0tRN1lubzVrMWVRcktXWUx6MVh6SmF0dU1mZlRERkRtT0xYVkgyM1puVlA2cExGQ05GYTRaRDdwWmtrczN0RHlKWU51RW9qY1RLeVViZDEwUkJUMFZoVEhjalR4WHF4Z0dhS25HWTQxdmdCSjhKN3QzQVFBQUE9PSJ9 -->
+<div data-pagedtable>
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["x"],"name":[1],"type":["int"],"align":["left"]},{"label":["y"],"name":[2],"type":["int"],"align":["right"]},{"label":["yinx"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"66","3":"0"},{"1":"2","2":"54","3":"0"},{"1":"3","2":"26","3":"1"},{"1":"4","2":"67","3":"0"},{"1":"5","2":"61","3":"0"},{"1":"6","2":"96","3":"0"},{"1":"7","2":"93","3":"0"},{"1":"8","2":"7","3":"1"},{"1":"9","2":"69","3":"0"},{"1":"10","2":"49","3":"1"},{"1":"11","2":"9","3":"1"},{"1":"12","2":"27","3":"1"},{"1":"13","2":"5","3":"1"},{"1":"14","2":"81","3":"0"},{"1":"15","2":"73","3":"0"},{"1":"16","2":"83","3":"0"},{"1":"17","2":"11","3":"1"},{"1":"18","2":"35","3":"1"},{"1":"19","2":"24","3":"1"},{"1":"20","2":"57","3":"0"},{"1":"21","2":"59","3":"0"},{"1":"22","2":"36","3":"1"},{"1":"23","2":"84","3":"0"},{"1":"24","2":"22","3":"1"},{"1":"25","2":"37","3":"1"},{"1":"26","2":"100","3":"0"},{"1":"27","2":"77","3":"0"},{"1":"28","2":"87","3":"0"},{"1":"29","2":"98","3":"0"},{"1":"30","2":"52","3":"0"},{"1":"31","2":"4","3":"1"},{"1":"32","2":"6","3":"1"},{"1":"33","2":"30","3":"1"},{"1":"34","2":"65","3":"0"},{"1":"35","2":"88","3":"0"},{"1":"36","2":"42","3":"1"},{"1":"37","2":"40","3":"1"},{"1":"38","2":"71","3":"0"},{"1":"39","2":"39","3":"1"},{"1":"40","2":"25","3":"1"},{"1":"41","2":"50","3":"1"},{"1":"42","2":"90","3":"0"},{"1":"43","2":"76","3":"0"},{"1":"44","2":"10","3":"1"},{"1":"45","2":"45","3":"1"},{"1":"46","2":"33","3":"1"},{"1":"47","2":"44","3":"1"},{"1":"48","2":"94","3":"0"},{"1":"49","2":"23","3":"1"},{"1":"50","2":"41","3":"1"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[50]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -717,6 +973,18 @@ df</code></pre>
   print(i)
 }</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcblsxXSAyXG5bMV0gM1xuWzFdIDRcblsxXSA1XG5bMV0gNlxuWzFdIDdcblsxXSA4XG5bMV0gOVxuWzFdIDEwXG4ifQ== -->
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+[1] 6
+[1] 7
+[1] 8
+[1] 9
+[1] 10</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>For loops are VERY SLOW because they do the same thing over and over again. R has a BETTER way to do this. <code>map_?()</code> is a function in the PURR package. We can discuss this more later. For now, a quick exmaple:</p>
@@ -725,6 +993,19 @@ df</code></pre>
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWFwX2ludCgxOjEwLCBwcmludClcbmBgYCJ9 -->
 <pre class="r"><code>map_int(1:10, print)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcblsxXSAyXG5bMV0gM1xuWzFdIDRcblsxXSA1XG5bMV0gNlxuWzFdIDdcblsxXSA4XG5bMV0gOVxuWzFdIDEwXG4gWzFdICAxICAyICAzICA0ICA1ICA2ICA3ICA4ICA5IDEwXG4ifQ== -->
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+[1] 6
+[1] 7
+[1] 8
+[1] 9
+[1] 10
+ [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>

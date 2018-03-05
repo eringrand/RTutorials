@@ -1,0 +1,29 @@
+---
+title: R Tutorials Lesson Plans
+output: 
+  html_notebook: 
+    theme: cerulean
+    toc: yes
+---
+
+## Requirements:
+* Office space that is zoom friendly
+* Zoom or google hangout connection to screen share to office
+* Ability for participants to login to zoom/hangout and take over the screen to demonstrate code (via share screen or mouse take over)
+
+# Lesson 1: Best Practices
+
+# Lesson 2: Mutate Review
+
+# Lesson 0: Janitor
+
+# Lesson 3: Tidy Data
+
+# Lesson 4: Functions
+
+
+#### Cold Calling Questions
+#### Share outs
+
+
+

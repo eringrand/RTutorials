@@ -1,7 +1,7 @@
 ---
-title: "Introduction to R: Tidyverse"
+title: "Introduction to R: Data Transformation"
 author: "Erin Grand"
-date: "Oct 14, 2017"
+date: "3/16/2017"
 output: revealjs::revealjs_presentation
 ---
 
@@ -10,9 +10,9 @@ Focusing on packages found in tidyverse
 
 
 ## Packages
-Download tidyverse:
+Download tidyverse.
 Imports: dplyr, ggplot2, lubricate, readr, readxl, stringr, tibble, tidyr, magrittr
-if you're using multiple packages make sure you're loading them in the right order
+
 ```{r, message=FALSE, warning=FALSE}
 library(readxl)
 library(tidyverse)
@@ -20,7 +20,7 @@ library(tidyverse)
 
 
 ## Tidy Data
-<div class="centerd">
+<div class="centered">
 ![](https://github.com/eringrand/RTutorials/blob/master/Lesson1/images/tidy-1.jpg?raw=true)
 </class>
 
@@ -29,60 +29,211 @@ library(tidyverse)
 1. Each type of observational unit forms a table
 
 ## Learn to think in Code
-How to do you currently think about a task in excel or tableau? Learn how to translate and use that process in code. If you can relate it to how you already think you'll find it easier to transition between the two. 
+How to do you currently think about a task in excel or tableau? Learn how to translate and use that process in code. 
 
 1. What is your process for creating a pivot table?
 1. What is your process for creating a new column?
 1. How do you sort data?
 
-
-## SPLIT APPLY COMBINE
-1.	Split up the original data (this can be any format including data frames, lists, arrays, matrices, vectors),
-2.	Apply existing or custom functions to it, and
-3.	Combine the results in the same or different format.
-
-This will come back in a later lesson when we look at `PURR` and functional programing.
-
-
-
 # DPLYR
 
 ##  Five Most Important DPLYR Functions
-1.	`Filter`
-2.	`Select`
-3.	`Arrange`
-4.	`Mutate`
-5.	`Group_by`, `Summarize` (`Summarise`)
+>1.	`Filter`
+>2.	`Select`
+>3.	`Mutate`
+>4.	`Group_by`, `Summarize` (`Summarise`)
+>5.	`Arrange`
+
+All these function work similarly, the first argument is a data frame, the next describe what you want to do with the data frame, and the result is a new data frame. 
+
+
+## Real world example
+
+You're going to use of each these functions to look at the NY schools with the highest predicted passing rates for students taking the Regents exam.
 
 
 ## Filter
-Task: filter the IA data to only include NY 8th grade students Math tests. This way you'll only looking at Regents test takers.
+![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/filters.png?raw=true)
+---
 
+**Task: Filter the IA data to only include NY 8th grade students' math tests. This way you're only looking at Regents test takers.**
+
+---
 
 ## Select
-Task:
+>- It's not uncommon to get data sets with many variables. In this case, the first challenge is often narrowing in on the variables you're actually interested in. `select()` allows you to rapidly zoom in on just those.
+>- You select columns by name without quotes
 
-## Arrange
-Task:
+
+## Select Continued
+There are a number of other different ways to select columns.
+You can find out more about each of these on the Tidy Data cheat sheet, or by looking at `?select` 
+
+>- `column1:column3`: selects all the column between column1 and column3
+>- `starts_with("abc")`: matches column names that begin with "abc"
+>- `ends_with("abc")`: matches column names that end with "abc"
+>- `contains("ID")`: will select only columns that contain ID (not case-sensitive)
+
+---
+
+>- `num_range("x", 1:3)`: selects columns titled `x1`, `x2`, `x3`
+>- `matches()`: selects variables that match a regular expression, don't use this unless you know regular expressions
+>- `-X3` will select all column expect `X3`
+>- `one_of()` takes a vector of characters and will select all the columns that have the same name as you provide
+
+**Task: The IA data has SO MANY columns which aren't really useful if we only want to the passing rate of these students. Find the ones we need and select only them.**
+
+---
+
 
 ## Mutate
-Task:
+>- Besides selecting sets of existing columns, it's often useful to add new columns that are functions of existing columns. That's the job of `mutate()`.
+>- You can refer to column you've just created too.
+
+```{r, echo=T, eval=F}
+library(fivethirtyeight)
+avengers <- mutate(fivethirtyeight::avengers, 
+       death1 = ifelse(!is.na(death1) & death1, 1, 0 ),
+       death2 = ifelse(!is.na(death2) & death2, 1, 0 ),
+       death3 = ifelse(!is.na(death3) & death3, 1, 0 ),
+       death4 = ifelse(!is.na(death4) & death4, 1, 0 ),
+       death5 = ifelse(!is.na(death5) & death5, 1, 0 ),
+       total.deaths = death1 + death2 + death3 + death4 + death5) 
+```
+
+```{r, include=FALSE}
+library(fivethirtyeight)
+avengers <- mutate(fivethirtyeight::avengers, 
+       death1 = ifelse(!is.na(death1) & death1, 1, 0 ),
+       death2 = ifelse(!is.na(death2) & death2, 1, 0 ),
+       death3 = ifelse(!is.na(death3) & death3, 1, 0 ),
+       death4 = ifelse(!is.na(death4) & death4, 1, 0 ),
+       death5 = ifelse(!is.na(death5) & death5, 1, 0 ),
+       total.deaths = death1 + death2 + death3 + death4 + death5) 
+```
+
+**Task: Create a column called `Pass` that describes if the student is predicted to pass the exam (1) or not (0).**
+
+
+## Group by and Summarize
+>- `summarize()` summarizes the data to a single row
+>- it is not really useful on it's own, but becomes super powerful when you pair it with `group_by()`. 
+>- This changes the "unit" of analysis from the complete data set to individual groups. 
+>- So instead of a a single row, you get a single row per group.
+
+---
+
+```{r}
+by_year <- group_by(avengers, year, gender)
+summarise(by_year, avgDeaths = mean(total.deaths, na.rm = TRUE))
+```
+
+----
+
+```{r, echo=FALSE}
+by_year <- group_by(avengers, year, gender)
+summarise(by_year, avgDeaths = mean(total.deaths, na.rm = TRUE)) %>%
+  spread(gender, avgDeaths) %>%
+  mutate(gender.difference = FEMALE - MALE)
+```
+
 
 ## Group by and Summarize
 
+**Task: Arrgeate your data to find the predicted pass rate per school for the Regents Math exam.**
+
+
+
+
+## Arrange
+>- Arrange works by you providing the column names you'd like to sort by. The order you provide them will determine the ties in the preceding columns.
+>- You can use `desc()` to order in descending order
+>- Missing values (`NA`s) are always sorted at the end
+
+**Task: Sort the final table to look at the schools with the highest predicted pass rate for the Regents Math exam.**
+
+---
+
+Result:
+```{r, eval=T, echo=F}
+source("../../setup.R")
+IAs %>%
+ left_join(assessMap, by=c("Assessment"="Assessment.Name", "Grade")) %>%
+ filter(Subject == "Math", Grade == "8", Assessment.Type == "NYS", Cycle == 3) %>%
+ select(ID, Cycle, Cut.Score, Overall, School ) %>%
+ mutate(Pass = ifelse(Overall >= Cut.Score, 1, 0)
+        ) %>%
+ group_by(School) %>%
+ summarise(Pass.Rate = scales::percent(mean(Pass))) %>%
+ arrange(desc(Pass.Rate))
+```
+
+<div align="right">
+![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/unicorn.gif?raw=true)
+</div>
+
+# Questions
+
+## Discussion Questions
+1. When do you think you should you use `mutate()` vs creating a new column with `df$x`?
+1. What would be a use case to have a `group_by()` WITHOUT `summarize()`?
+1. These steps are great for analysis! What about data cleaning and QCing? Discuss how you might use `dplyr` functions in data cleaning and/or QCing.
+
 
 # Joins
-
 ## Which Join is which?
-<!-- ![]() -->
+![](https://imasters.com.br/wp-content/uploads/2013/05/uuu.png)
 
-## Left-Join vs Inner-Join vs Full-Join
+***
+
+Type of Join | What it does | Example Code 
+-------------|-------------------------------|-------------
+Left Join |Keeps rows in 1st table, joins matching rows from 2nd | `left_join(x, y, by="ID")`
+Right Join | Keeps rows in 2nd table, joins matching rows from 1st | `right_join(x, y, by="ID")`
+
+***
+
+Type of Join | What it does | Example Code 
+-------------|-------------------------------|-------------
+Full Join | Keeps the rows from both tables, filling in missing rows with NA | `full_join(x, y, by="ID")`
+Inner Join | Keeps ONLY the rows in both tables | `inner_join(x, y, by="ID")`
+Semi Join | keeps one row for every row in the 1st table that matches the 2nd | `semi_join(x, y, by="ID")`
+Anti Join | Removes rows that match the 2nd table | `anti_row(x, y, by="ID")`
+
+## Joining by more than one Column
+```{r, eval=F}
+left_join(newTE, oldTE, by = c("Teacher"="Teacher.Name", "School"), suffix=c(".new", ".old") 
+```
+
+## When to use what Join?
+Type of Join | Use case
+-------------|------------
+Left Join | Default
+Right Join | You're map is the first in the pipe
+Full Join | You don't want to lose any rows in either data set
+Inner Join | You don't want any NAs
+Semi Join | You don't want any "duplicates" of the first data set
+Anti Join | You want to filter out rows
 
 
 ## Advantages of Anti-Join
-
+* It can be really useful to "filter" out data from one data set that is in another
+  * For example, in text analysis you want to ignore stop words (and, but, the..etc). 
 
 ## What about Right-Join?
-- There aren't many use cases for right joining data, HOWEVER if you are piping a set of set which creates your map and you want to join it back to the orginal data, to continue the pipe you would use a right join.
+* There aren't many use cases for right joining data, HOWEVER if you are piping a set of set which creates your map and you want to join it back to the original data, to continue the pipe you would use a right join.
 
+
+
+# Putting it Together
+
+## Assigment
+Task: Talent Dev has requested a rundown on the racial demographics of our NY students
+
+1. Read in the enrollment data file
+2. Explore the file, is there anything missing that you need?
+3. Join any data that you may need that was missing from the enrollment set.
+4. QC and clean the enrollment data
+5. Find how many many students are in each ethnicity bucket
+6. Arrange the data for ease of requester
 

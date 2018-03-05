@@ -1,8 +1,5 @@
 ---
 title: "Hadley Wickham: Data Science in R"
-output: 
-  html_notebook: 
-    theme: cerulean
 ---
 
 ## On Machine Learning

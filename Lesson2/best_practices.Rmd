@@ -1,0 +1,85 @@
+---
+title: "Best Practices"
+date: "July 7, 2017"
+output: revealjs::revealjs_presentation
+---
+
+## Style Guide
+
+![](https://media1.giphy.com/media/LN6AfV6TxxJtu/giphy.gif?response_id=595fef0631e28fe288ece974)  
+
+
+## Space: New lines and tabs
+- Start a new line for each new thing in a mutate statement
+- Start a new line generally when the line is too long. 
+- Tab over inside a pipe
+- Start a new code group (ie. ```{r}) when you start a new task
+
+## Space
+- Put spaces around your punctuation this allows the eye to see what's happening
+
+```{r}
+# Good 
+x <- 42 + 18
+
+# Bad
+x<-42+18
+```
+
+
+## Naming conventions 
+### i.e columns, functions, varibles... etc
+
+- Use `snake_case` to stay consistent with tidyverse best practices
+  - Lots of other R users prefer `sep.case`, but I think we should be consistent from here on out
+- In general: lower case with a separator between words
+- Try not to call your data frames `df` or `data` (bad Erin)
+
+## Puncuation
+
+Use ", not ', for quoting text. The only exception is when the text already contains double quotes and no single quotes.
+
+```{r, collapse=TRUE}
+# Good
+"Text"
+'Text with "quotes"'
+
+# Bad
+'Text'
+```
+  
+## Assignment
+
+Use `<-` not `=` for assignment
+
+I know it takes some time to get used to, but it makes your code look much cleaner. 
+
+```{r, collapse=TRUE}
+# Good
+x <- 42
+
+# Bad
+x = 42
+
+# Really bad
+x=42
+```
+
+
+## Practice:
+
+Clean this piece of code up using these style suggestions.
+```{r, eval=FALSE}
+library(tidyverse)
+library(readxl)
+df <- read_rds("S:/Data Analytics/State Test Analysis/2016-2017/Cross Regional Analyses/~Data/Processed/Output/historical_state_test_and_ias_cleaned.rds")
+df_Math <- df %>% filter(Subject=="Math") %>% mutate(Score = as.numeric(Score), Overall=as.numeric(Overall))
+Math_average_Cycle <- df_Math %>% group_by(Student.ID, Grade, School, Year) %>% dplyr::summarise(Score = max(Score, na.rm = T), Overall = mean(Overall, na.rm =T)) %>% mutate(Grade.Span = ifelse(Grade >= 5, "MS", "ES"))
+```
+
+## Good job
+
+```{r}
+praise::praise()
+```
+

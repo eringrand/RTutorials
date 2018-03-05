@@ -13,7 +13,6 @@ knitr::opts_chunk$set(
 ```
 
 # Welcome and Introduction
-<!-- CRAN: The Comprehensive R Archive Network -->
 
 
 ## Before we jump into it, make sure that you have Rstudio, R and the package "Tidyverse" installed.
@@ -25,23 +24,23 @@ All, set? Great let's begin!
 ### Which language do people use for what?
 ```{r, echo=F}
 kable(data.frame("What do you want to do?" = c(
-"Building a website",
-"Web application",
-"Phone Application",
-"Numerical Computation",
-"Stats",
-"Visualization",
-"Typesetting",
-"Big Data"),
+  "Building a website",
+  "Web application",
+  "Phone Application",
+  "Numerical Computation",
+  "Stats",
+  "Visualization",
+  "Typesetting",
+  "Big Data"),
 Language = c(
-"HTML, CSS",
-"Java Script",
-"Swift, Objective C, Java",
-"IDL, Python, Matlab",
-"R, Strata",
-"R, JavaScript (D3)",
-"LaTeX, Mardown",
-"SQL, Scala, Python")
+  "HTML, CSS",
+  "Java Script",
+  "Swift, Objective C, Java",
+  "IDL, Python, Matlab",
+  "R, Strata",
+  "R, JavaScript (D3)",
+  "LaTeX, Mardown",
+  "SQL, Scala, Python")
 ), align = "lc")
 ```
 
@@ -49,7 +48,7 @@ Language = c(
 # why R?
 
 ***
-### What problems have you seen or come in across in the way you currently do data analyses and manipulation that you wish you could change?
+### What problems have you seen or come across in the way you currently do data analyses and manipulation that you wish you could change?
 
 Discuss with team.
 
@@ -84,16 +83,18 @@ R is calculator
 
 ## NO!! 
 
-R is a programming languange.  Specifically it's a programming language built for statistics.  
-
+R is a programming language.  Specifically it's a programming language built for statistics.  
 And that's what it's best at.
+
+<div align="centered">
+![](http://emojis.slackmojis.com/emojis/images/1450319440/23/all_the_things.jpg?1450319440)
+</div>
 
 ---  
 
-- R is a dialect of the S languange which was developed by John Chambers at Bell Labs in 1976 and still exists today although hasn't changed much since 1998.  
-- The philosopy behind S (and R) was to allow users to begin in an interactive enviroment that didn't explicitly feel like programming.  
-- As their needs and skills grew they could move into more of the programming aspects.  This helps us understand some of why R is the way it is.
-
+* R is a dialect of the S language which was developed by John Chambers at Bell Labs in 1976 and still exists today although hasn't changed much since 1998.  
+* The philosophy behind S (and R) was to allow users to begin in an interactive environment that didn't explicitly feel like programming.
+* As their needs and skills grew they could move into more of the programming aspects.  This helps us understand some of why R is the way it is.
 
 
 # Packages
@@ -108,9 +109,9 @@ And that's what it's best at.
 
 ## Installing packages
 
-* Packages need only be installed once, although you may have to reinstall when upgrading R or when you want to use a newer version of a package.
-
+* Packages need only be installed once, although you may have to re-install when upgrading R or when you want to use a newer version of a package.
 * To install from CRAN all one needs to do is:
+
 ```
 install.packages("tidyverse")
 ```
@@ -126,10 +127,44 @@ library(tidyverse)
 filter(iris, Species == "setosa")
 ```
 
-* <small> `library()` loads the package into memory and allows you to use the functions within without naming the package directly everytime. </small>
+* <small> `library()` loads the package into memory and allows you to use the functions within without naming the package directly every time. </small>
 * <small>  Technically what is happening here is that when attaching a package R puts those functions in your search path, the place R looks first for objects and functions. </small>
 * <small> This may cause problems if packages have functions with the same name. R will choose the version for the package loaded last. </small>
 * <small> Packages are attached in your current session and need to be attached every time you start a new session. </small>
+
+# Data Types
+
+## Data Types
+Data type | Example
+------------- | -------------
+Integer | `1`
+Logical | `TRUE`
+Numeric | `1.1`
+String / character  | `"Red"`
+Factor (enumerated string) | `"Amber"` or 2 in `c("Red","Amber","Green")`
+Complex | `i`
+Date | `r as.Date("2015-04-24")`
+NA | `r NA`
+
+## Data Functions
+Function | Use
+------------- | -------------
+`is.[data type]` | Whether a vector is of a particular type
+`as.[data type]` | Attempts to coerce a vector to a data type
+`str` | Structure of an object including class/data type, dimensions 
+`class` | The class(es)/data type(s) an object belongs to
+`summary` | Summarizes an object 
+`dput` | Get R code that recreates an object
+`unlist` | Simplify a list to a vector
+`dim` | Dimensions of a data type
+`length` | Length of a vector or list
+
+## Compound data types
+Data type | Info | Construction example(s)
+------------- | ------------- | -------------
+Vector | A 1D set of values of the same data type | `c(1,"a")` , `1:3`
+List | A collection of objects of various data types | `list(vector=c(1,"a")`, `df=data.frame(a=1:6))`
+Data.frame  | A 2D set of values of different data types | `data.frame(a=1:26, b=11:36)`
 
 # Other important key R functions 
 
@@ -158,11 +193,12 @@ rep(c("A", "B", "C"), each = 6)
 ```
 
 
+
 ## Basic statistics
 
 ```{r, collapse=TRUE}
 set.seed(3823)
-x = sample(1:1000, size = 50, replace = TRUE)
+x <- sample(1:1000, size = 50, replace = TRUE)
 ```
 
 ```{r, collapse=TRUE}
@@ -186,7 +222,16 @@ var(x)
 ---- 
 
 ```{r, collapse=TRUE}
-y = rnorm(x, 1, 0.2 * x) + x
+sum(if_else(x > 400, 1, 0))
+```
+<div align="right">
+![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/dancing_penguin.gif?raw=true)
+</div>
+
+---
+
+```{r, collapse=TRUE}
+y <- rnorm(x, 1, 0.2 * x) + x
 plot(x,y)
 ```
 
@@ -195,7 +240,7 @@ plot(x,y)
 ### Simple linear model
 
 ```{r}
-my_model = lm(y ~ x)
+my_model <- lm(y ~ x)
 summary(my_model)
 ```
 
@@ -206,7 +251,59 @@ plot(x, y, main = "Linear model")
 abline(my_model, col = "red")
 ```
  
- 
+# Assignment and Subsetting
+
+## Variables are asigned with `<-`
+
+```{r, collapse=T}
+x <- 5 
+x <- c(1, 3, 4, 5)
+df <- data.frame(x = 1:5, y = 2:6) 
+```
+
+<small>Shortcut: Alt + - </small>
+
+## Columns in a Dataframe can be accesed or created with `$`
+
+```{r, collapse=T}
+df$z <- df$x + df$y
+```
+
+Though if you need to create more than one new column, it's much more concise to use `mutate()`.
+
+## Accessing elements
+![](https://pbs.twimg.com/media/CO2_qPVWsAAErbv.png)
+
+<small>From [\@hadleywickham](https://twitter.com/hadleywickham)</small>
+
+```{r, collapse = TRUE}
+x <- 1:5
+x[3]
+x[3] <- 42
+x
+```
+
+---
+
+## Different Ways to Subset Vectors
+
+Subset Type | Example | Example Output
+------------- | ------------- | -------------
+Nothing | `x[]` | `r x[] `
+Positive integers | `x[5]` | `r x[5]`
+Negative integers | `x[-1]` | `r x[-1]`
+Logical vectors | `x[c(TRUE, FALSE, TRUE, FALSE, TRUE)]` | `r x[c(TRUE, FALSE, TRUE, FALSE, TRUE)]`
+Zero | `x[0]` | `r x[0]`
+
+---
+
+## Subsetting Data frames
+
+* `$` + column name to create or access a column
+* `df[row, column]`
+
+*Note that a much more detailed overview of subsetting can be found in the [Subsetting](http://adv-r.had.co.nz/Subsetting.html) chapter of Advanced R.*
+
 # Where to get help
 
 ## Built-in help
@@ -224,13 +321,15 @@ R-package authors are required to document their functions although this happens
 
 * Sometimes authors will provide more detailed documentation online.  
 * This is more common for more recent packages where the authors may have a github repository and associated webpage.  
-* Often discussion pages (Google groups, Stackoverflow) can also be a useful source of help
+* Often discussion pages (Google groups, Stack overflow) can also be a useful source of help
 
 # Errors
 
 ## __GOOGLE IT!!!__
 
 If I get an error I haven't seen, the first thing I will do is Google it. Usually within a few clicks I can find what went wrong.
+
+![](http://media1.giphy.com/media/cp9mafwcwRCkU/giphy-downsized.gif)  
 
 ---- 
 
@@ -239,7 +338,7 @@ If I get an error I haven't seen, the first thing I will do is Google it. Usuall
 1.  Re-read the error and then think about it for a minute.  See if you can't get a grasp on what's really going wrong.
 2.  Check your code for errors.  Spelling errors, misplaced commas, forgotten parenthesis can all cause problems
 3.  Look it up - I very, very rarely get an error that someone else hasn't seen before.
-4.  If you still can't find a solution then you can ask for help. I can answer brief questions or you can post questions online at Stack Overflow.  Sometimes package developers have specific discussion groups on Google groups or Github.  These can be very useful.
+4.  If you still can't find a solution then you can ask for help. I can answer brief questions or you can post questions online at Stack Overflow.  
 
 ---- 
 
@@ -257,8 +356,14 @@ my_object
 ```{r, error=TRUE}
 iris[, 6]
 ```
+- Hint: How many columns does the `iris` data frame have?
 
-- Hint:  How many columns does the `iris` data frame have?
+----
+
+```{r, error=TRUE}
+a < - 5
+```
+- Hint: look carefully
 
 ---- 
 ```{r, error=TRUE}
@@ -286,24 +391,27 @@ if (nothing == NA) {
 
 ---- 
 ```{r, error=TRUE}
-my_data = read.table("mydata.txt")
+my_data <- read.table("mydata.txt")
 ```
 
 - Hint: Read the error message carefully.
 
 ----
 ```{r, error=TRUE}
-x = data.frame(y = NULL)
+x <- data.frame(y = NULL)
 x$y = 1:4
 ```
 
 - Hint: How many rows does `x` have?
 
+----
+```{r}
+mean(c(NA, 4, 2))
+```
+- Hint: Is this an error? 
+---
 
 # Questions so Far
-## Any Questions you have from the tutorial?
-What did you find to be the most challenging?
-
 
 # Scripting
 
@@ -326,9 +434,9 @@ What did you find to be the most challenging?
 
 ## Sample Script...
 
-```{r, echo=T, eval=F, tidy=TRUE, tidy.opts=list(width.cutoff=50)}
+```{r, eval=F, echo=T, message=FALSE, warning=FALSE, list(width.cutoff=50), tidy=TRUE, tidy.opts=list(width.cutoff=50)}
 # Set working directory
-setwd("S:/Data Analytics/Resource Library/R help")
+setwd("S:/Data Analytics/State Test Analysis/2015-2016/New York State Exams/Results Release/Tableau Data Files/")
 
 # Load packages
 library(readxl)
@@ -364,36 +472,63 @@ ggplot(plotdat, aes(Year, avgP, color=Subject)) +
 # Now you try!
 ***
 
-#### Using the *mpg* dataset, answer these questions.
 
-1. What is the manufacturer, model, and year of the car in the 42nd row?
-1. How many models of cars are in this data set? How many manufacturers?
-1. How many cars get over 19 mpg in the city?
-1. How many miles per gallon ON AVERAGE do the cars get on the highway? In the city?
-1. How many models of cars did Audi make in 1999?  
+**Using the comma_survey dataset in the fivethirtyeight dataset...**
 
-
+1. How do you load the fivethirtyeight package to find the comma_survey data set?
+1. What is the income, education and location of the respondent in the 42nd row?
+1. How many respondents are in this data set? How many locations?
+1. How many respondents care about the oxford comma **A lot**? 
+1. What is the average *care rate* of the singular vs plural form of "data"? 
+1. How many **Male** respondents in the age range of **45-60** think that care about proper grammar is **Very important**?
 
 ***
 
 #### Answers!
-```{r, echo=F, message=FALSE, warning=FALSE}
+>1. How do you load the fivethirtyeight package to find the comma_survey dataset?
+
+```{r, echo=T, message=FALSE, warning=FALSE}
 library(tidyverse)
-df <- mpg
-df[42, c(1, 2, 4)]
-
-paste(length(unique(df$model)), length(unique(df$manufacturer)), sep= ", ")
-
-sum(mpg$cty > 19)
-
-paste(round(mean(mpg$hwy)), round(mean(mpg$cty)) , sep= ", ")
-
-x <- filter(mpg, manufacturer == "audi", year == 1999)
-length(unique(x$model))
+library(fivethirtyeight)
+df <- fivethirtyeight::comma_survey
 ```
 
-# Tips and Tricks
-## Some Tips and Tricks
->- **Use tab complete:** Press "tab" after typing the first few letters to find the function, variable, or file that you need without having to type it all in.
->- **Highlight Strings:** You can highlight what you want to put quotes around at once.
->- **Short Cuts:** Hightlight what you want to run and press CNT-ENTER to run it.
+>2. What is the income, education and location of the respondent in the 42nd row?
+
+````{r, echo=F}
+df[42, c(4, 5, 6)]
+```
+
+>3. How many respondents are in this data set? How many locations?
+
+```{r, echo=F}
+paste(length(unique(df$respondent_id)), length(unique(df$location)), sep=", ")
+```
+
+----
+
+>4. How many respondents care about the oxford comma **A lot**? 
+
+```{r, echo=F}
+sum(df$care_oxford_comma == "A lot", na.rm=T)
+```
+
+>5. What is the average *care rate* of the singular vs plural form of "data"? 
+
+```{r, echo=F}
+scales::percent(mean(ifelse(df$data_singular_plural, 1, 0), na.rm=T))
+```
+
+>6. How many **Male** respondents in the age range of **45-60** think that care about proper grammar is **Very important**?
+
+```{r, echo=F}
+x <- filter(df, gender == "Male", age == "45-60", care_proper_grammar == "Very important")
+length(unique(x$respondent_id))
+```
+
+<div align="right">
+![](https://github.com/eringrand/RTutorials/blob/gh-pages/Lesson1/images/panda_dance.gif?raw=true)
+</div>
+
+
+

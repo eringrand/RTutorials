@@ -1,0 +1,177 @@
+---
+title: "Take Your Own Notes"
+output: 
+  html_notebook: 
+    highlight: pygments 
+    theme: flatly
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button (green arrow) within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+
+I'm going to start you off with loading `tidyverse` into your Notebook. Huzzah!
+```{r, echo=F, message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+I will load uncommon data for assignments. This code block will take awhile to run, so be patient.
+
+```{r, collapse=T}
+IAs <- readRDS("S:/Data Analytics/Resource Library/R Help/data/IAs.rds")
+assessMap <- readRDS("S:/Data Analytics/Resource Library/R Help/data/assessMap.rds")
+schoolMap <- readRDS("S:/Data Analytics/Resource Library/R Help/data/schoolMap.rds")
+thisyearEnrollment <- readRDS("S:/Data Analytics/Resource Library/R Help/data/thisyearEnrollment.rds")
+
+str(thisyearEnrollment)
+str(IAs)
+#str(assessMap)
+```
+
+
+# Intro
+This is your file now, feel free to take notes and try out code as you wish. Yay notes! Yay you!
+
+![yay+you](http://media3.giphy.com/media/lrWJPrzlcOqs/giphy-downsized.gif)  
+ 
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+
+
+----
+## Getting Around RStudio
+
+### Discussion Questions:
+1. Describe the difference between a R script and a R notebook? 
+
+
+## R basics
+
+### Discussion Questions:
+
+1. What problems have you come across in your normal data analysis that you wish to change?
+
+2. What **reason** behind using R stands out to you the most? (I.E. What's going to be your "carrot" to keep going?)
+
+### Exercises:
+
+1. Does order you load packages matter? What might you do if you need a function that's named the same in two different packages?
+```{r, eval=FALSE, echo=TRUE}
+# answer here, you don't need to complete the functions
+library(MASS)
+library(tidyverse)
+select()
+MASS::select()
+```
+
+2. Can I combine data types in one vector? Try the code and see what happens. 
+```{r}
+c(1, 4, FALSE, "Erin")
+```
+
+3. Explain this:
+```{r collapse=T}
+sqrt(2) ^ 2 == 2
+1/49 * 49 == 1
+```
+
+
+
+### Assignment from the basic R slides:
+**Using the comma_survey dataset in the fivethirtyeight dataset...**
+
+1. How do you load the _fivethirtyeight_ package to find the *comma_survey* data set?
+1. What is the income, education and location of the respondent in the 42nd row?
+1. How many respondents are in this data set? How many locations?
+1. How many respondents care about the oxford comma **A lot**? 
+1. What is the average *care rate* of the singular vs plural form of "data"? 
+1. How many **Male** respondents in the age range of **45-60** think that care about proper grammar is **Very important**?
+
+```{r}
+library(fivethirtyeight)
+df <- fivethirtyeight::comma_survey
+mean(ifelse(df$care_data == "A lot", 1, 0), na.rm=T)
+
+x <- filter(df, 
+       gender == "Male", 
+       age == "45-60",
+       care_proper_grammar == "Very important")
+length(x)
+```
+
+```{r}
+# Write your answers here.
+
+```
+
+
+## Data Transformation
+### Discussion Questions:
+
+1. What is your process for creating a pivot table?
+
+2. When do you think you should you use `mutate()` vs creating a new column with `df$x`?
+
+3. What would be a use case to have a `group_by()` WITHOUT `summarize()`?
+
+### Exercises: 
+
+1. Filter the IA data to include only students who will be taking the 8th Grade Regents exam.
+
+```{r}
+IAsDF <- IAs %>% 
+  left_join(assessMap, by=c("Assessment"="Assessment.Name", "Grade")) 
+
+#IAsDF %>% filter(__Fill this in___) 
+```
+
+2.  The IA data has SO MANY columns which aren't really useful if we only want the passing rate of these students. Find the ones we need and select only them.
+
+```{r}
+
+```
+
+3. Create a column called `Pass` that describes if the student is predicted to pass the exam (1) or not (0).
+```{r}
+
+```
+
+### Examples:
+
+```{r, eval=T}
+library(fivethirtyeight)
+avengers <- mutate(fivethirtyeight::avengers, 
+       death1 = ifelse(!is.na(death1)& death1, 1, 0 ),
+       death2 = ifelse(!is.na(death2)& death2, 1, 0 ),
+       death3 = ifelse(!is.na(death3)& death3, 1, 0 ),
+       death4 = ifelse(!is.na(death4)& death4, 1, 0 ),
+       death5 = ifelse(!is.na(death5)& death5, 1, 0 ),
+       total.deaths = death1 + death2 + death3 + death4 + death5) 
+```
+
+## The Pipe
+### Exercises: 
+
+1. Tell a story with pipes! 
+```
+char1 %>%
+  does_a_thing()
+```
+
+### Discussion Questions:
+
+1. When should you use the pipe vs not?
+
+
+2. Beside ease of writing/reading what is useful about using the pipe structure?
+
+
+3. What should you never do in a pipe group?
+
+

@@ -1,0 +1,35 @@
+.reveal pre code {
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.reveal section img {
+  border: 0;
+  box-shadow: none;
+  margin: 0;
+  background: none;
+}
+
+body {
+  background-image:url(https://raw.githubusercontent.com/eringrand/RTutorials/gh-pages/Lesson1/images/uncommonbackground.jpg);
+;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+reveal pre code { color: #839496; 
+  background-color: #2B2B2B; } /* use #FDF6E3 for light background */
+ 
+.sourceCode .kw { color: #268BD2; }
+.sourceCode .dt { color: #268BD2; }
+.sourceCode .dv, .sourceCode .bn, .sourceCode .fl { color: #D33682; }
+.sourceCode .ch { color: #DC322F; }
+.sourceCode .st { color: #2AA198; }
+.sourceCode .co { color: #93A1A1; }
+.sourceCode .ot { color: #A57800; }
+.sourceCode .al { color: #CB4B16; font-weight: bold; }
+.sourceCode .fu { color: #268BD2; }
+.sourceCode .re { }
+.sourceCode .er { color: #D30102; font-weight: bold; }
+
+

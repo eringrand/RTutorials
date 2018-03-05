@@ -1,0 +1,23 @@
+---
+title: "Assertive R Programing"
+author: "Erin Grand"
+date: "6/6/2017"
+output: revealjs::revealjs_presentation
+---
+
+## Why?
+- We of
+
+
+# What the heck is unit testing?
+
+
+# Assertr
+
+## Library(assertr)
+
+```{r}
+library(assertr)
+```
+
+
