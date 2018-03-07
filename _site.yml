@@ -9,7 +9,7 @@ navbar:
   - text: "Worksheets"
     href: worksheets.html
   - text: "Rstudio Cheatsheets"
-    href: cheatsheets.html
+    href: https://www.rstudio.com/resources/cheatsheets/
   right:
   - icon: fa-envelope fa-lg
     href: contact.html

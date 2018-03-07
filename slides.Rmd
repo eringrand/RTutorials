@@ -7,14 +7,14 @@ Slides are
 
 
 # Lesson 1
-- [Rstudio Basics](Lesson1/slides/intro_to_Rstudio_slides.html){:target="_blank"}
-- [Basics of R Coding](Lesson1/slides/introtoR_basics_slides.html){:target="_blank"}
-- [The Pipe](Lesson1/slides/introtoR_pipe_slides.html){:target="_blank"}
-- [Transforming Data](Lesson1/slides/introtoR_part2_slides.html){:target="_blank"}
+- [Rstudio Basics](Lesson1/slides/intro_to_Rstudio_slides.html)
+- [Basics of R Coding](Lesson1/slides/introtoR_basics_slides.html)
+- [The Pipe](Lesson1/slides/introtoR_pipe_slides.html)
+- [Transforming Data](Lesson1/slides/introtoR_part2_slides.html)
 
 # Lesson 2
-- [Style Best Practices](Lesson2/best_practices.html){:target="_blank"}
-- [Tidy Data](Lesson2/slides/tidy-data-slides.html){:target="_blank"}
-- [More with Mutate](Lesson2/slides/mutate_review.html){:target="_blank"}
-- [Writing Functions](Lesson2/slides/writing_functions_slides.html){:target="_blank"}
-- [Janitor Package](Lesson2/slides/janitor.html){:target="_blank"}
+- [Style Best Practices](Lesson2/best_practices.html)
+- [Tidy Data](Lesson2/slides/tidy-data-slides.html)
+- [More with Mutate](Lesson2/slides/mutate_review.html)
+- [Writing Functions](Lesson2/slides/writing_functions_slides.html)
+- [Janitor Package](Lesson2/slides/janitor.html)
