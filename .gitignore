@@ -170,3 +170,5 @@ pip-log.txt
 .RData
 packrat/lib*/
 donotrun/*
+Lesson1/Assignment/Enrollment.xlsx
+*.docx
